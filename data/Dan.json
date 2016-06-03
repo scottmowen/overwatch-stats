@@ -1,0 +1,93 @@
+{
+    "gamertag": "Mr DANgerous03",
+    "name": "Dan",
+    "featured": {
+        "Eliminations - Average": "11.28",
+        "Damage Done - Average": "4,567",
+        "Deaths - Average": "6.89",
+        "Final Blows - Average": "7.45",
+        "Healing Done - Average": "337",
+        "Objective Kills - Average": "3.85",
+        "Objective Time - Average": "00:38",
+        "Solo Kills - Average": "3.05"
+    },
+    "Combat": {
+        "Eliminations": "25",
+        "Final Blows": "11",
+        "Solo Kills": "4",
+        "Shots Fired": "147",
+        "Shots Hit": "58",
+        "Critical Hits": "9",
+        "Damage Done": "6,462",
+        "Objective Kills": "9",
+        "Multikills": "1",
+        "Critical Hits per Minute": "0",
+        "Critical Hit Accuracy": "15%",
+        "Eliminations per Life": "1.66",
+        "Weapon Accuracy": "39%"
+    },
+    "Assists": {
+        "Healing Done": "329",
+        "Self Healing": "329"
+    },
+    "Best": {
+        "Eliminations - Most in Life": "5",
+        "Most Score within one Life": "237",
+        "Damage Done - Most in Life": "1,257",
+        "Healing Done - Most in Life": "130",
+        "Weapon Accuracy - Best in Game": "43%",
+        "Kill Streak - Best": "5",
+        "Damage Done - Most in Game": "4,910",
+        "Healing Done - Most in Game": "260",
+        "Eliminations - Most in Game": "19",
+        "Final Blows - Most in Game": "7",
+        "Objective Kills - Most in Game": "9",
+        "Objective Time - Most in Game": "8",
+        "Solo Kills - Most in Game": "2",
+        "Critical Hits - Most in Game": "8",
+        "Critical Hits - Most in Life": "3",
+        "Self Healing - Most in Game": "260"
+    },
+    "Average": {
+        "Self Healing - Average": "0.35",
+        "Deaths - Average": "9.24",
+        "Solo Kills - Average": "2.46",
+        "Objective Time - Average": "5.03",
+        "Objective Kills - Average": "5.54",
+        "Healing Done - Average": "202.78",
+        "Final Blows - Average": "6.78",
+        "Eliminations - Average": "15.41",
+        "Damage Done - Average": "3,982.97"
+    },
+    "Deaths": {
+        "Deaths": "15",
+        "Environmental Deaths": "1"
+    },
+    "Match Awards": {
+        "Medals - Bronze": "2",
+        "Medals - Silver": "2",
+        "Medals": "4"
+    },
+    "Game": {
+        "Time Played": "15 minutes",
+        "Games Played": "2",
+        "Games Won": "2",
+        "Score": "1,177",
+        "Objective Time": "8",
+        "Win Percentage": "94%"
+    },
+    "Miscellaneous": {
+        "Multikill - Best": "3"
+    },
+    "Hero Specific": {
+        "Enemies Frozen": "11",
+        "Enemies Frozen - Most in Game": "6",
+        "Blizzard Kills - Most in Game": "6",
+        "Blizzard Kills": "7",
+        "Damage Blocked - Most in Game": "4,490",
+        "Damage Blocked": "6,202",
+        "Enemies Frozen - Average": "6.78",
+        "Damage Blocked - Average": "3,823",
+        "Blizzard Kills - Average": "4.31"
+    }
+}
