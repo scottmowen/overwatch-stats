@@ -3,7 +3,10 @@ var fs = require('fs'),
 	express = require('express'),
 	request = require('request'),
 	cheerio = require('cheerio'),
-	wscraper = require('wscraper');
+	wscraper = require('wscraper'),
+	cron = require('cron');
+
+var CronJob = cron.CronJob;
 
 var app = express();
 
@@ -63,5 +66,18 @@ agent.on('abort', function (e) {
 	process.exit();
 });
 
-agent.start('playoverwatch.com', urls, script)
+//if specified, run automatically every day at midnight
+if (process.argv[2] == "repeat") {
+	var job = new CronJob('* * 00 * * * *', function () {
+		agent.start('playoverwatch.com', urls, script)
+	});
+
+	job.start();
+}
+
+else {
+	agent.start('playoverwatch.com', urls, script)
+}
+
+
 exports = module.exports = app;
