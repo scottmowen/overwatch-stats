@@ -33,7 +33,31 @@ $(document).ready(function () {
 		updateTable(category);
 	})
 
+
 	function updateTable(category) {
+		var legendCount = 1;
+		var legend = {"Name": 0};
+
+		function getLegend(str) {
+			if (legend.hasOwnProperty(str)) return legend[str];
+			else {
+				var v = legend[str] = legendCount++;
+				return v;
+			}
+		}
+
+		function getLegendArray() {
+			var arr = [];
+			for (var prop in legend) {
+				arr[legend[prop]] = prop;
+			}
+			return arr;
+		}
+
+		function identity(d) {
+			return d
+		}
+
 		var data = [];
 		var obj = {};
 		for (var player in stats) {
@@ -42,27 +66,38 @@ $(document).ready(function () {
 			data.push(obj);
 		}
 
-		var table = d3.select('body').select('table');
+		var dataTable = data.map(function (obj) {
+			var arr = [];
+			for (var prop in obj) {
+				arr[getLegend(prop)] = obj[prop];
+			}
+			arr.length = legendCount;
+			return arr;
+		});
 
-		var thead = table.append('thead');
+		var table = d3.select('table');
+
+		var thead = table.select('thead');
+
+		var tbody = table.select('tbody');
 
 		var th = thead.selectAll("th")
-			.data(d3.keys(data[0]))
-			.enter().append("th")
-			.text(function(d){return d});
+			.data(getLegendArray());
 
-		var tr = table.selectAll('tr')
-			.data(data).enter()
-			.append('tr');
+		th.enter().append("th");
+		th.exit().remove();
+		th.text(identity);
+
+		var tr = tbody.selectAll('tr')
+			.data(dataTable);
+		tr.enter().append('tr');
+		tr.exit().remove();
 
 		var td = tr.selectAll('td')
-			.data(function (d) {
-				return d3.values(d)
-			})
-			.enter().append('td')
-			.text(function (d) {
-				return d
-			});
+			.data(identity);
+		td.enter().append('td');
+		td.exit().remove();
+		td.text(identity);
 	}
 
 	function getColumns(data) {
