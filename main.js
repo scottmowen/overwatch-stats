@@ -29,7 +29,7 @@ $(document).ready(function () {
 
 
 	$("#categorySelect").change(function () {
-		var category = $(this).text();
+		var category = $(this).val();
 		updateTable(category);
 	})
 
@@ -42,7 +42,7 @@ $(document).ready(function () {
 			data.push(obj);
 		}
 
-		var table = d3.select('body').append('table');
+		var table = d3.select('body').select('table');
 
 		var thead = table.append('thead');
 

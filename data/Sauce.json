@@ -1,7 +1,16 @@
 {
     "gamertag": "The Sauce",
     "name": "Sauce",
-    "featured": {},
+    "featured": {
+        "Eliminations - Average": "11.08",
+        "Damage Done - Average": "4,506",
+        "Deaths - Average": "4.77",
+        "Final Blows - Average": "6.16",
+        "Healing Done - Average": "1,186",
+        "Objective Kills - Average": "4.78",
+        "Objective Time - Average": "00:39",
+        "Solo Kills - Average": "2.45"
+    },
     "Combat": {
         "Melee Final Blows": "24",
         "Solo Kills": "624",

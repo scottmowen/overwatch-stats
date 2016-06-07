@@ -1,7 +1,16 @@
 {
     "gamertag": "Yoble 7",
     "name": "Yosef",
-    "featured": {},
+    "featured": {
+        "Eliminations - Average": "10.53",
+        "Damage Done - Average": "3,603",
+        "Deaths - Average": "5.14",
+        "Final Blows - Average": "6.79",
+        "Healing Done - Average": "461",
+        "Objective Kills - Average": "3.1",
+        "Objective Time - Average": "00:16",
+        "Solo Kills - Average": "3.21"
+    },
     "Combat": {
         "Melee Final Blows": "10",
         "Solo Kills": "293",

@@ -2,7 +2,16 @@
     "Scott": {
         "gamertag": "KI Scottworth",
         "name": "Scott",
-        "featured": {},
+        "featured": {
+            "Eliminations - Average": "11.55",
+            "Damage Done - Average": "4,052",
+            "Deaths - Average": "6.82",
+            "Final Blows - Average": "5.85",
+            "Healing Done - Average": "438",
+            "Objective Kills - Average": "4.67",
+            "Objective Time - Average": "00:36",
+            "Solo Kills - Average": "2.3"
+        },
         "Combat": {
             "Melee Final Blows": "30",
             "Solo Kills": "686",
@@ -73,7 +82,16 @@
     "Frank": {
         "gamertag": "Soresukai",
         "name": "Frank",
-        "featured": {},
+        "featured": {
+            "Eliminations - Average": "9.87",
+            "Damage Done - Average": "3,199",
+            "Deaths - Average": "6.93",
+            "Final Blows - Average": "4.36",
+            "Healing Done - Average": "1,715",
+            "Objective Kills - Average": "4.13",
+            "Objective Time - Average": "00:39",
+            "Solo Kills - Average": "1.51"
+        },
         "Combat": {
             "Melee Final Blows": "14",
             "Solo Kills": "420",
@@ -144,7 +162,16 @@
     "Sauce": {
         "gamertag": "The Sauce",
         "name": "Sauce",
-        "featured": {},
+        "featured": {
+            "Eliminations - Average": "11.08",
+            "Damage Done - Average": "4,506",
+            "Deaths - Average": "4.77",
+            "Final Blows - Average": "6.16",
+            "Healing Done - Average": "1,186",
+            "Objective Kills - Average": "4.78",
+            "Objective Time - Average": "00:39",
+            "Solo Kills - Average": "2.45"
+        },
         "Combat": {
             "Melee Final Blows": "24",
             "Solo Kills": "624",
@@ -215,7 +242,16 @@
     "Rizzo": {
         "gamertag": "Rizzo H2P",
         "name": "Rizzo",
-        "featured": {},
+        "featured": {
+            "Eliminations - Average": "13.18",
+            "Damage Done - Average": "4,834",
+            "Deaths - Average": "6.66",
+            "Final Blows - Average": "7.69",
+            "Healing Done - Average": "458",
+            "Objective Kills - Average": "4.53",
+            "Objective Time - Average": "00:28",
+            "Solo Kills - Average": "3.11"
+        },
         "Combat": {
             "Solo Kills": "896",
             "Objective Kills": "1,306",
@@ -279,7 +315,16 @@
     "Jay": {
         "gamertag": "jaytay4589",
         "name": "Jay",
-        "featured": {},
+        "featured": {
+            "Eliminations - Average": "9.19",
+            "Damage Done - Average": "3,343",
+            "Deaths - Average": "7.44",
+            "Final Blows - Average": "5.39",
+            "Healing Done - Average": "384",
+            "Objective Kills - Average": "3.37",
+            "Objective Time - Average": "00:24",
+            "Solo Kills - Average": "2.24"
+        },
         "Combat": {
             "Melee Final Blows": "8",
             "Solo Kills": "518",
@@ -352,7 +397,16 @@
     "Dan": {
         "gamertag": "Mr DANgerous03",
         "name": "Dan",
-        "featured": {},
+        "featured": {
+            "Eliminations - Average": "12.27",
+            "Damage Done - Average": "4,934",
+            "Deaths - Average": "6.58",
+            "Final Blows - Average": "7.61",
+            "Healing Done - Average": "282",
+            "Objective Kills - Average": "4.12",
+            "Objective Time - Average": "00:38",
+            "Solo Kills - Average": "3.1"
+        },
         "Combat": {
             "Melee Final Blows": "4",
             "Solo Kills": "432",
@@ -423,7 +477,16 @@
     "Yosef": {
         "gamertag": "Yoble 7",
         "name": "Yosef",
-        "featured": {},
+        "featured": {
+            "Eliminations - Average": "10.53",
+            "Damage Done - Average": "3,603",
+            "Deaths - Average": "5.14",
+            "Final Blows - Average": "6.79",
+            "Healing Done - Average": "461",
+            "Objective Kills - Average": "3.1",
+            "Objective Time - Average": "00:16",
+            "Solo Kills - Average": "3.21"
+        },
         "Combat": {
             "Melee Final Blows": "10",
             "Solo Kills": "293",
@@ -495,7 +558,16 @@
     "Nick": {
         "gamertag": "LordRurisk",
         "name": "Nick",
-        "featured": {},
+        "featured": {
+            "Eliminations - Average": "8.59",
+            "Damage Done - Average": "3,330",
+            "Deaths - Average": "6.19",
+            "Final Blows - Average": "4.13",
+            "Healing Done - Average": "2,172",
+            "Objective Kills - Average": "3.62",
+            "Objective Time - Average": "00:27",
+            "Solo Kills - Average": "1.34"
+        },
         "Combat": {
             "Melee Final Blows": "2",
             "Solo Kills": "126",
@@ -566,7 +638,16 @@
     "Andy": {
         "gamertag": "FBallPlaya",
         "name": "Andy",
-        "featured": {},
+        "featured": {
+            "Eliminations - Average": "13.63",
+            "Damage Done - Average": "4,346",
+            "Deaths - Average": "7.84",
+            "Final Blows - Average": "5.87",
+            "Healing Done - Average": "768",
+            "Objective Kills - Average": "5.6",
+            "Objective Time - Average": "00:33",
+            "Solo Kills - Average": "2.09"
+        },
         "Combat": {
             "Melee Final Blows": "2",
             "Solo Kills": "69",

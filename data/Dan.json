@@ -1,7 +1,16 @@
 {
     "gamertag": "Mr DANgerous03",
     "name": "Dan",
-    "featured": {},
+    "featured": {
+        "Eliminations - Average": "12.27",
+        "Damage Done - Average": "4,934",
+        "Deaths - Average": "6.58",
+        "Final Blows - Average": "7.61",
+        "Healing Done - Average": "282",
+        "Objective Kills - Average": "4.12",
+        "Objective Time - Average": "00:38",
+        "Solo Kills - Average": "3.1"
+    },
     "Combat": {
         "Melee Final Blows": "4",
         "Solo Kills": "432",

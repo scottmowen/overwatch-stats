@@ -1,7 +1,16 @@
 {
     "gamertag": "Rizzo H2P",
     "name": "Rizzo",
-    "featured": {},
+    "featured": {
+        "Eliminations - Average": "13.18",
+        "Damage Done - Average": "4,834",
+        "Deaths - Average": "6.66",
+        "Final Blows - Average": "7.69",
+        "Healing Done - Average": "458",
+        "Objective Kills - Average": "4.53",
+        "Objective Time - Average": "00:28",
+        "Solo Kills - Average": "3.11"
+    },
     "Combat": {
         "Solo Kills": "896",
         "Objective Kills": "1,306",

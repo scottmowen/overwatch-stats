@@ -1,7 +1,16 @@
 {
     "gamertag": "FBallPlaya",
     "name": "Andy",
-    "featured": {},
+    "featured": {
+        "Eliminations - Average": "13.63",
+        "Damage Done - Average": "4,346",
+        "Deaths - Average": "7.84",
+        "Final Blows - Average": "5.87",
+        "Healing Done - Average": "768",
+        "Objective Kills - Average": "5.6",
+        "Objective Time - Average": "00:33",
+        "Solo Kills - Average": "2.09"
+    },
     "Combat": {
         "Melee Final Blows": "2",
         "Solo Kills": "69",

@@ -1,7 +1,16 @@
 {
     "gamertag": "Soresukai",
     "name": "Frank",
-    "featured": {},
+    "featured": {
+        "Eliminations - Average": "9.87",
+        "Damage Done - Average": "3,199",
+        "Deaths - Average": "6.93",
+        "Final Blows - Average": "4.36",
+        "Healing Done - Average": "1,715",
+        "Objective Kills - Average": "4.13",
+        "Objective Time - Average": "00:39",
+        "Solo Kills - Average": "1.51"
+    },
     "Combat": {
         "Melee Final Blows": "14",
         "Solo Kills": "420",

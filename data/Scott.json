@@ -1,7 +1,16 @@
 {
     "gamertag": "KI Scottworth",
     "name": "Scott",
-    "featured": {},
+    "featured": {
+        "Eliminations - Average": "11.55",
+        "Damage Done - Average": "4,052",
+        "Deaths - Average": "6.82",
+        "Final Blows - Average": "5.85",
+        "Healing Done - Average": "438",
+        "Objective Kills - Average": "4.67",
+        "Objective Time - Average": "00:36",
+        "Solo Kills - Average": "2.3"
+    },
     "Combat": {
         "Melee Final Blows": "30",
         "Solo Kills": "686",

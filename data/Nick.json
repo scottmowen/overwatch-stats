@@ -1,7 +1,16 @@
 {
     "gamertag": "LordRurisk",
     "name": "Nick",
-    "featured": {},
+    "featured": {
+        "Eliminations - Average": "8.59",
+        "Damage Done - Average": "3,330",
+        "Deaths - Average": "6.19",
+        "Final Blows - Average": "4.13",
+        "Healing Done - Average": "2,172",
+        "Objective Kills - Average": "3.62",
+        "Objective Time - Average": "00:27",
+        "Solo Kills - Average": "1.34"
+    },
     "Combat": {
         "Melee Final Blows": "2",
         "Solo Kills": "126",

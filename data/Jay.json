@@ -1,7 +1,16 @@
 {
     "gamertag": "jaytay4589",
     "name": "Jay",
-    "featured": {},
+    "featured": {
+        "Eliminations - Average": "9.19",
+        "Damage Done - Average": "3,343",
+        "Deaths - Average": "7.44",
+        "Final Blows - Average": "5.39",
+        "Healing Done - Average": "384",
+        "Objective Kills - Average": "3.37",
+        "Objective Time - Average": "00:24",
+        "Solo Kills - Average": "2.24"
+    },
     "Combat": {
         "Melee Final Blows": "8",
         "Solo Kills": "518",
