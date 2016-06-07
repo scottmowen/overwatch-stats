@@ -1,0 +1,95 @@
+{
+    "gamertag": "The Sauce",
+    "name": "Sauce",
+    "featured": {
+        "Eliminations - Average": "11.08",
+        "Damage Done - Average": "4,506",
+        "Deaths - Average": "4.77",
+        "Final Blows - Average": "6.16",
+        "Healing Done - Average": "1,186",
+        "Objective Kills - Average": "4.78",
+        "Objective Time - Average": "00:39",
+        "Solo Kills - Average": "2.45"
+    },
+    "Combat": {
+        "Eliminations": "12",
+        "Final Blows": "3",
+        "Shots Fired": "55",
+        "Shots Hit": "15",
+        "Critical Hits": "4",
+        "Damage Done": "3,458",
+        "Objective Kills": "9",
+        "Critical Hits per Minute": "0",
+        "Critical Hit Accuracy": "26%",
+        "Eliminations per Life": "1.09",
+        "Weapon Accuracy": "27%"
+    },
+    "Assists": {
+        "Healing Done": "832",
+        "Turrets Destroyed": "3",
+        "Self Healing": "832"
+    },
+    "Best": {
+        "Eliminations - Most in Life": "4",
+        "Most Score within one Life": "220",
+        "Damage Done - Most in Life": "724",
+        "Healing Done - Most in Life": "188",
+        "Kill Streak - Best": "4",
+        "Damage Done - Most in Game": "1,435",
+        "Healing Done - Most in Game": "338",
+        "Eliminations - Most in Game": "5",
+        "Final Blows - Most in Game": "2",
+        "Objective Kills - Most in Game": "4",
+        "Objective Time - Most in Game": "29",
+        "Critical Hits - Most in Game": "2",
+        "Critical Hits - Most in Life": "2",
+        "Self Healing - Most in Game": "338"
+    },
+    "Average": {
+        "Self Healing - Average": "1.2",
+        "Deaths - Average": "8.77",
+        "Objective Time - Average": "52.88",
+        "Objective Kills - Average": "7.18",
+        "Healing Done - Average": "663.78",
+        "Final Blows - Average": "2.39",
+        "Eliminations - Average": "9.57",
+        "Damage Done - Average": "2,759.02"
+    },
+    "Deaths": {
+        "Deaths": "11"
+    },
+    "Match Awards": {
+        "Medals - Bronze": "2",
+        "Medals - Silver": "1",
+        "Medals - Gold": "1",
+        "Medals": "5"
+    },
+    "Game": {
+        "Time Played": "11 minutes",
+        "Games Played": "1",
+        "Score": "1,010",
+        "Objective Time": "66"
+    },
+    "Miscellaneous": {
+        "Multikill - Best": "3",
+        "Offensive Assists": "7",
+        "Offensive Assists - Most in Game": "2",
+        "Defensive Assists": "71",
+        "Defensive Assists - Most in Game": "10",
+        "Healing Done": "60,583",
+        "Healing Done - Average": "4,817",
+        "Defensive Assists - Average": "6",
+        "Offensive Assists - Average": "1"
+    },
+    "Hero Specific": {
+        "Enemies Frozen": "7",
+        "Enemies Frozen - Most in Game": "3",
+        "Blizzard Kills - Most in Game": "3",
+        "Blizzard Kills": "3",
+        "Damage Blocked - Most in Game": "2,389",
+        "Damage Blocked": "4,987",
+        "Enemies Frozen - Average": "5.58",
+        "Damage Blocked - Average": "3,979",
+        "Blizzard Kills - Average": "2.39"
+    }
+}

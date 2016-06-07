@@ -1,0 +1,96 @@
+{
+    "gamertag": "Rizzo H2P",
+    "name": "Rizzo",
+    "featured": {
+        "Eliminations - Average": "13.18",
+        "Damage Done - Average": "4,834",
+        "Deaths - Average": "6.66",
+        "Final Blows - Average": "7.69",
+        "Healing Done - Average": "458",
+        "Objective Kills - Average": "4.53",
+        "Objective Time - Average": "00:28",
+        "Solo Kills - Average": "3.11"
+    },
+    "Combat": {
+        "Eliminations": "198",
+        "Final Blows": "61",
+        "Solo Kills": "21",
+        "Shots Fired": "711",
+        "Shots Hit": "154",
+        "Critical Hits": "24",
+        "Damage Done": "43,736",
+        "Objective Kills": "98",
+        "Multikills": "4",
+        "Critical Hits per Minute": "0",
+        "Critical Hit Accuracy": "15%",
+        "Eliminations per Life": "2",
+        "Weapon Accuracy": "21%"
+    },
+    "Assists": {
+        "Healing Done": "8,824",
+        "Self Healing": "8,824"
+    },
+    "Best": {
+        "Eliminations - Most in Life": "16",
+        "Most Score within one Life": "572",
+        "Damage Done - Most in Life": "1,780",
+        "Healing Done - Most in Life": "374",
+        "Weapon Accuracy - Best in Game": "71%",
+        "Kill Streak - Best": "16",
+        "Damage Done - Most in Game": "5,397",
+        "Healing Done - Most in Game": "1,057",
+        "Eliminations - Most in Game": "27",
+        "Final Blows - Most in Game": "6",
+        "Objective Kills - Most in Game": "21",
+        "Objective Time - Most in Game": "187",
+        "Solo Kills - Most in Game": "4",
+        "Critical Hits - Most in Game": "4",
+        "Critical Hits - Most in Life": "4",
+        "Self Healing - Most in Game": "1,057"
+    },
+    "Average": {
+        "Self Healing - Average": "1.23",
+        "Deaths - Average": "6.9",
+        "Solo Kills - Average": "1.46",
+        "Objective Time - Average": "60.61",
+        "Objective Kills - Average": "6.83",
+        "Healing Done - Average": "615.66",
+        "Final Blows - Average": "4.25",
+        "Eliminations - Average": "13.81",
+        "Damage Done - Average": "3,051.39"
+    },
+    "Deaths": {
+        "Deaths": "99",
+        "Environmental Deaths": "5"
+    },
+    "Match Awards": {
+        "Medals - Bronze": "19",
+        "Medals - Silver": "15",
+        "Medals - Gold": "12",
+        "Medals": "46",
+        "Cards": "6"
+    },
+    "Game": {
+        "Time Played": "1 hour",
+        "Games Played": "14",
+        "Games Won": "10",
+        "Score": "12,368",
+        "Objective Time": "869",
+        "Time Spent on Fire": "105",
+        "Win Percentage": "69%"
+    },
+    "Miscellaneous": {
+        "Multikill - Best": "5"
+    },
+    "Hero Specific": {
+        "Enemies Frozen": "181",
+        "Enemies Frozen - Most in Game": "26",
+        "Blizzard Kills - Most in Game": "7",
+        "Blizzard Kills": "50",
+        "Damage Blocked - Most in Game": "4,967",
+        "Damage Blocked": "42,990",
+        "Enemies Frozen - Average": "12.62",
+        "Damage Blocked - Average": "2,999",
+        "Blizzard Kills - Average": "3.48"
+    }
+}
