@@ -6,4 +6,24 @@ td, th {
   text-align: center;
   font-size: 12px; }
 
+.chart-container {
+  margin-top: 30px; }
+
+.chart {
+  margin-top: 10px;
+  padding-left: 50px;
+  overflow-x: visible; }
+  .chart rect {
+    fill: #5870b6; }
+  .chart .Scott {
+    fill: #1b65c6; }
+  .chart .Jay {
+    fill: #6e994d; }
+  .chart .Frank {
+    fill: #f8911b; }
+  .chart .Sauce {
+    fill: #ff6200; }
+  .chart .Rizzo {
+    fill: #9adbf4; }
+
 /*# sourceMappingURL=style.css.map */

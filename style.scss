@@ -7,3 +7,36 @@ td, th {
   text-align: center;
   font-size: 12px;
 }
+
+
+.chart-container {
+  margin-top: 30px;
+}
+
+.chart {
+  margin-top: 10px;
+  padding-left: 50px;
+  overflow-x: visible;
+
+  rect {
+    fill: rgb(88, 112, 182);
+  }
+
+  .Scott {
+    fill: rgb(27, 101, 198);
+  }
+  .Jay {
+    fill: rgb(110, 153, 77);
+  }
+  .Frank {
+    fill: rgb(248, 145, 27);
+  }
+
+  .Sauce {
+    fill: rgb(255, 98, 0);
+  }
+
+  .Rizzo {
+    fill: rgb(154, 219, 244);
+  }
+}

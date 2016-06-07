@@ -66,14 +66,21 @@ $(document).ready(function () {
 			data.push(obj);
 		}
 
-		var dataTable = data.map(function (obj) {
+
+		var tableData = data.map(function (obj) {
 			var arr = [];
 			for (var prop in obj) {
 				arr[getLegend(prop)] = obj[prop];
 			}
-			arr.length = legendCount;
 			return arr;
 		});
+
+		var headers = getLegendArray();
+		headers.shift(); //remove "Name" from options
+
+		tableData.forEach(function (row) {
+			row.length = legendCount;
+		})
 
 		var table = d3.select('table');
 
@@ -89,7 +96,7 @@ $(document).ready(function () {
 		th.text(identity);
 
 		var tr = tbody.selectAll('tr')
-			.data(dataTable);
+			.data(tableData);
 		tr.enter().append('tr');
 		tr.exit().remove();
 
@@ -98,6 +105,84 @@ $(document).ready(function () {
 		td.enter().append('td');
 		td.exit().remove();
 		td.text(identity);
+
+		createBarChart("Eliminations", tableData);
+
+
+		var chartSelect = d3.select('#chartSelect');
+
+		var option = chartSelect.selectAll('option')
+			.data(headers);
+		option.enter().append('option')
+			.attr('value', identity);
+		option.exit().remove();
+		option.text(identity);
+
+		$("#chartSelect").change(function () {
+			var category = $(this).val();
+			createBarChart(category, tableData);
+		});
+
+		function createBarChart(category, data) {
+
+			var chartData = [];
+
+			data.forEach(function (item, index) {
+				var obj = {
+					"name": data[index][getLegend("Name")],
+					"value": parseInt(data[index][getLegend(category)].replace(/,/g, ""))
+				}
+				chartData.push(obj);
+			});
+
+			var width = 800,
+				barHeight = 40;
+
+			var x = d3.scale.linear()
+				.domain([0, d3.max(chartData, function (d) {
+					return d.value;
+				})])
+				.range([0, width]);
+
+			var chart = d3.select(".chart")
+				.attr("width", width)
+				.attr("height", barHeight * chartData.length);
+
+			var bar = chart.selectAll("g")
+				.data(chartData);
+				bar.enter().append("g")
+				.attr("transform", function (d, i) {
+					return "translate(0," + i * barHeight + ")";
+				});
+
+			bar.append("rect")
+				.attr("width", function (d) {
+					return x(d.value);
+				})
+				.attr("class", function (d) {
+					return d.name;
+				})
+				.attr("height", barHeight - 1);
+
+			bar.append("text")
+				.attr("x", function (d) {
+					return x(d.value) - 50;
+				})
+				.attr("y", barHeight / 2)
+				.attr("dy", ".35em")
+				.text(function (d) {
+					return d.value;
+				});
+
+			bar.append("text")
+				.attr("x", -50)
+				.attr("y", barHeight / 2)
+				.attr("dy", ".35em")
+				.text(function (d) {
+					return d.name;
+				});
+			bar.exit().remove();
+		}
 	}
 
 	function getColumns(data) {
