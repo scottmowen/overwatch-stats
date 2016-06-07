@@ -24,17 +24,20 @@ $(document).ready(function () {
 		andy = data["Andy"];
 		stats = data;
 
-		updateTable("Combat");
+		updateDisplay("Combat");
 	});
 
 
 	$("#categorySelect").change(function () {
 		var category = $(this).val();
-		updateTable(category);
+		updateDisplay(category);
 	})
 
+	function identity(d) {
+		return d
+	}
 
-	function updateTable(category) {
+	function convertData(data) {
 		var legendCount = 1;
 		var legend = {"Name": 0};
 
@@ -54,19 +57,6 @@ $(document).ready(function () {
 			return arr;
 		}
 
-		function identity(d) {
-			return d
-		}
-
-		var data = [];
-		var obj = {};
-		for (var player in stats) {
-			obj = stats[player][category];
-			obj["Name"] = player;
-			data.push(obj);
-		}
-
-
 		var tableData = data.map(function (obj) {
 			var arr = [];
 			for (var prop in obj) {
@@ -75,12 +65,46 @@ $(document).ready(function () {
 			return arr;
 		});
 
-		var headers = getLegendArray();
-		headers.shift(); //remove "Name" from options
-
 		tableData.forEach(function (row) {
 			row.length = legendCount;
 		})
+
+		return {
+			"legend": getLegendArray(),
+			"tableData": tableData
+		}
+	}
+
+	function updateDisplay(category) {
+		var data = [];
+		var obj = {};
+		for (var player in stats) {
+			obj = stats[player][category];
+			obj["Name"] = player;
+			data.push(obj);
+		}
+
+		var convertedData = convertData(data);
+
+		updateTable(convertedData);
+
+		$("#chartSelect").change(function () {
+			var category = $(this).val();
+			createBarChart(category, convertedData);
+		});
+
+		var chartSelect = d3.select('#chartSelect');
+
+		var option = chartSelect.selectAll('option')
+			.data(convertedData.legend);
+		option.enter().append('option')
+			.attr('value', identity)
+			.attr('class', 'chart-option');
+		option.exit().remove();
+		option.text(identity);
+	}
+
+	function updateTable(data) {
 
 		var table = d3.select('table');
 
@@ -89,14 +113,14 @@ $(document).ready(function () {
 		var tbody = table.select('tbody');
 
 		var th = thead.selectAll("th")
-			.data(getLegendArray());
+			.data(data.legend);
 
 		th.enter().append("th");
 		th.exit().remove();
 		th.text(identity);
 
 		var tr = tbody.selectAll('tr')
-			.data(tableData);
+			.data(data.tableData);
 		tr.enter().append('tr');
 		tr.exit().remove();
 
@@ -105,84 +129,78 @@ $(document).ready(function () {
 		td.enter().append('td');
 		td.exit().remove();
 		td.text(identity);
+	}
 
-		createBarChart("Eliminations", tableData);
+	function createBarChart(category, data) {
 
-
-		var chartSelect = d3.select('#chartSelect');
-
-		var option = chartSelect.selectAll('option')
-			.data(headers);
-		option.enter().append('option')
-			.attr('value', identity);
-		option.exit().remove();
-		option.text(identity);
-
-		$("#chartSelect").change(function () {
-			var category = $(this).val();
-			createBarChart(category, tableData);
+		var chartData = data.tableData.map(function (item) {
+			return {
+				"name": item[data.legend.indexOf("Name")],
+				"value": parseInt((item[data.legend.indexOf(category)] || "0").replace(/,/g, ""), 10)
+			}
 		});
 
-		function createBarChart(category, data) {
+		var width = 800,
+			barHeight = 40;
 
-			var chartData = [];
+		var x = d3.scale.linear()
+			.domain([0, d3.max(chartData, function (d) {
+				return d.value;
+			})])
+			.range([0, width-50]);
 
-			data.forEach(function (item, index) {
-				var obj = {
-					"name": data[index][getLegend("Name")],
-					"value": parseInt(data[index][getLegend(category)].replace(/,/g, ""))
-				}
-				chartData.push(obj);
+		var chart = d3.select(".chart")
+			.attr("width", width)
+			.attr("height", barHeight * chartData.length);
+
+		var bar = chart.selectAll("g")
+			.data(chartData);
+
+		/*bar.enter().append("g")
+		 .attr("transform", function (d, i) {
+		 return "translate(0," + i * barHeight + ")";
+		 });*/
+
+		bar.exit().remove();
+		var newBar = bar.enter().append("g");
+
+
+		newBar.append("rect");
+		newBar.append("text")
+			.attr('class', 'name-text');
+		newBar.append("text")
+			.attr('class', 'value-text');
+
+		bar.attr("transform", function (d, i) {
+			return "translate(0," + i * barHeight + ")";
+		});
+
+		bar.select("rect")
+			.attr("width", function (d) {
+				return x(d.value);
+			})
+			.attr("class", function (d) {
+				return d.name;
+			})
+			.attr("height", barHeight - 1);
+
+		bar.select(".name-text")
+			.attr("x", function (d) {
+				return x(d.value) - 50;
+			})
+			.attr("y", barHeight / 2)
+			.attr("dy", ".35em")
+			.text(function (d) {
+				return d.value;
 			});
 
-			var width = 800,
-				barHeight = 40;
-
-			var x = d3.scale.linear()
-				.domain([0, d3.max(chartData, function (d) {
-					return d.value;
-				})])
-				.range([0, width]);
-
-			var chart = d3.select(".chart")
-				.attr("width", width)
-				.attr("height", barHeight * chartData.length);
-
-			var bar = chart.selectAll("g")
-				.data(chartData);
-				bar.enter().append("g")
-				.attr("transform", function (d, i) {
-					return "translate(0," + i * barHeight + ")";
-				});
-
-			bar.append("rect")
-				.attr("width", function (d) {
-					return x(d.value);
-				})
-				.attr("class", function (d) {
-					return d.name;
-				})
-				.attr("height", barHeight - 1);
-
-			bar.append("text")
-				.attr("x", function (d) {
-					return x(d.value) - 50;
-				})
-				.attr("y", barHeight / 2)
-				.attr("dy", ".35em")
-				.text(function (d) {
-					return d.value;
-				});
-
-			bar.append("text")
-				.attr("x", -50)
-				.attr("y", barHeight / 2)
-				.attr("dy", ".35em")
-				.text(function (d) {
-					return d.name;
-				});
-			bar.exit().remove();
-		}
+		bar.select(".value-text")
+			.attr("x", -50)
+			.attr("y", barHeight / 2)
+			.attr("dy", ".35em")
+			.text(function (d) {
+				return d.name;
+			});
 	}
 
 	function getColumns(data) {
