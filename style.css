@@ -1,0 +1,9 @@
+table, th, td {
+  border: 1px solid black; }
+
+td, th {
+  padding: 5px;
+  text-align: center;
+  font-size: 12px; }
+
+/*# sourceMappingURL=style.css.map */
