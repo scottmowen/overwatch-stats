@@ -51,7 +51,7 @@ $('.card-content').each(function () {
 
 json["featured"] = featured;
 
-$('.card-stat-block').each(function () {
+$('.is-active .card-stat-block').each(function () {
 	var data = $(this);
 
 	var statBlock = {};
