@@ -7,18 +7,12 @@ $(document).ready(function () {
 		dan = {},
 		yosef = {},
 		nick = {},
-		andy = {};
+		andy = {},
+		stats = {};
 
 	var players = [];
 
-	updateTable("combat");
-
-	$("#categorySelect").change(function() {
-		var category = $(this).text();
-		updateTable(category);
-	})
-
-	$.getJSON("http://scottmowen.com/overwatch-stats/data/stats.json", function(data){
+	$.getJSON("http://scottmowen.com/overwatch-stats/data/stats.json", function (data) {
 		scott = data["Scott"];
 		frank = data["Frank"];
 		jay = data["Jay"];
@@ -28,12 +22,55 @@ $(document).ready(function () {
 		yosef = data["Yosef"];
 		nick = data["Nick"];
 		andy = data["Andy"];
+		stats = data;
+
+		updateTable("Combat");
 	});
 
-	function updateTable(category) {
 
+	$("#categorySelect").change(function () {
+		var category = $(this).text();
+		updateTable(category);
+	})
+
+	function updateTable(category) {
+		var data = [];
+		var obj = {};
+		for (var player in stats) {
+			obj = stats[player][category];
+			obj["Name"] = player;
+			data.push(obj);
+		}
+
+		var table = d3.select('body').append('table');
+
+		var thead = table.append('thead');
+
+		var th = thead.selectAll("th")
+			.data(d3.keys(data[0]))
+			.enter().append("th")
+			.text(function(d){return d});
+
+		var tr = table.selectAll('tr')
+			.data(data).enter()
+			.append('tr');
+
+		var td = tr.selectAll('td')
+			.data(function (d) {
+				return d3.values(d)
+			})
+			.enter().append('td')
+			.text(function (d) {
+				return d
+			});
 	}
 
+	function getColumns(data) {
+		var cols = [];
+		for (var key in data) {
+			cols.push(key);
+		}
+	}
 
 
 })
