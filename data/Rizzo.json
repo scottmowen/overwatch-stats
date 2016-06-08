@@ -2,26 +2,26 @@
     "gamertag": "Rizzo H2P",
     "name": "Rizzo",
     "featured": {
-        "Eliminations - Average": "13.18",
-        "Damage Done - Average": "4,834",
-        "Deaths - Average": "6.66",
-        "Final Blows - Average": "7.69",
-        "Healing Done - Average": "458",
-        "Objective Kills - Average": "4.53",
+        "Eliminations - Average": "13.13",
+        "Damage Done - Average": "4,807",
+        "Deaths - Average": "6.65",
+        "Final Blows - Average": "7.68",
+        "Healing Done - Average": "471",
+        "Objective Kills - Average": "4.48",
         "Objective Time - Average": "00:28",
         "Solo Kills - Average": "3.11"
     },
     "Combat": {
-        "Solo Kills": "896",
-        "Objective Kills": "1,306",
-        "Final Blows": "2,215",
-        "Damage Done": "1,392,158",
-        "Eliminations": "3,798",
-        "Environmental Kills": "5",
-        "Multikills": "42"
+        "Solo Kills": "934",
+        "Objective Kills": "1,345",
+        "Final Blows": "2,305",
+        "Damage Done": "1,442,013",
+        "Eliminations": "3,940",
+        "Environmental Kills": "6",
+        "Multikills": "43"
     },
     "Assists": {
-        "Healing Done": "131,895",
+        "Healing Done": "141,369",
         "Recon Assists": "21"
     },
     "Best": {
@@ -40,34 +40,36 @@
         "Time Spent on Fire - Average": "00:47",
         "Solo Kills - Average": "3.11",
         "Objective Time - Average": "00:28",
-        "Objective Kills - Average": "4.53",
-        "Healing Done - Average": "458",
-        "Final Blows - Average": "7.69",
-        "Deaths - Average": "6.66",
-        "Damage Done - Average": "4,834",
-        "Eliminations - Average": "13.18"
+        "Objective Kills - Average": "4.48",
+        "Healing Done - Average": "471",
+        "Final Blows - Average": "7.68",
+        "Deaths - Average": "6.65",
+        "Damage Done - Average": "4,807",
+        "Eliminations - Average": "13.13"
     },
     "Deaths": {
-        "Deaths": "1,919",
+        "Deaths": "1,996",
         "Environmental Deaths": "37"
     },
     "Match Awards": {
-        "Cards": "99",
-        "Medals": "801",
-        "Medals - Gold": "286",
-        "Medals - Silver": "283",
-        "Medals - Bronze": "232"
+        "Cards": "105",
+        "Medals": "841",
+        "Medals - Gold": "298",
+        "Medals - Silver": "292",
+        "Medals - Bronze": "251"
     },
     "Game": {
-        "Games Won": "172",
-        "Games Played": "288",
-        "Time Spent on Fire": "03:46:50",
-        "Objective Time": "02:17:50",
-        "Score": "321,210",
-        "Time Played": "36 hours"
+        "Games Won": "177",
+        "Games Played": "300",
+        "Time Spent on Fire": "03:55:33",
+        "Objective Time": "02:22:49",
+        "Score": "333,860",
+        "Time Played": "37 hours"
     },
     "Miscellaneous": {
         "Defensive Assists": "2",
-        "Defensive Assists - Average": "0"
+        "Defensive Assists - Average": "0",
+        "Recon Assists - Average": "0",
+        "Recon Assists - Most in Game": "1"
     }
 }

@@ -107,6 +107,10 @@
   border: 1px solid #f0edf2;
   border-radius: 3px;
   z-index: 1;
+
+  option {
+    color: black;
+  }
 }
 
 .dropdown_styled:after {
@@ -147,12 +151,14 @@
     display: flex;
     justify-content: flex-start;
 
+
     padding: .3rem;
     border-radius: .4rem;
     background-color: rgba(24, 34, 62, .7);
     margin: 5px 0;
 
     font-size: 30px;
+
   }
 
   .name-text {
@@ -171,15 +177,21 @@
   }
 
   .rect {
-    background-color: rgb(88, 112, 182);
     text-align: right;
     padding-right: 10px;
+    padding-left: 5px;
     height: 50px;
     display: flex;
     flex-direction: column;
     justify-content: center;
 
+    text-shadow: .1rem .2rem .2rem rgba(51, 51, 51, .3);
+
     border-radius: .4rem;
+
+    min-width: 20px;
+    -webkit-transition: width 2s; /* Safari */
+    transition: width 2s;
   }
 
   .Scott {

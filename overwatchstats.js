@@ -28,7 +28,7 @@ switch (json.gamertag) {
 		json.name = "Dan";
 		break;
 	case "Yoble 7":
-		json.name = "Yosef";
+		json.name = "Yoseph";
 		break;
 	case "LordRurisk":
 		json.name = "Nick";

@@ -10,9 +10,9 @@ var fs = require('fs'),
 var urls = [
 	"/en-us/career/xbl/KI%20Scottworth",
 	"/en-us/career/xbl/Soresukai",
+	"/en-us/career/xbl/jaytay4589",
 	"/en-us/career/xbl/The%20Sauce",
 	"/en-us/career/xbl/Rizzo%20H2P",
-	"/en-us/career/xbl/jaytay4589",
 	"/en-us/career/xbl/Mr%20DANgerous03",
 	"/en-us/career/xbl/Yoble%207",
 	"/en-us/career/xbl/LordRurisk",
@@ -73,5 +73,5 @@ agent.on('abort', function (e) {
 // }
 
 //else {
-	agent.start('playoverwatch.com', urls, script);
+agent.start('playoverwatch.com', urls, script);
 //}

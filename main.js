@@ -5,7 +5,7 @@ $(document).ready(function () {
 		sauce = {},
 		rizzo = {},
 		dan = {},
-		yosef = {},
+		yoseph = {},
 		nick = {},
 		andy = {},
 		stats = {};
@@ -19,7 +19,7 @@ $(document).ready(function () {
 		sauce = data["Sauce"];
 		rizzo = data["Rizzo"];
 		dan = data["Dan"];
-		yosef = data["Yosef"];
+		yoseph = data["Yoseph"];
 		nick = data["Nick"];
 		andy = data["Andy"];
 		stats = data;
@@ -192,6 +192,9 @@ $(document).ready(function () {
 		bar.select(".rect")
 			.style("width", function (d) {
 				return x(d.value) + "px";
+			})
+			.style("min-width", function (d) {
+				return "20px";
 			})
 			.attr("class", function (d) {
 				return "rect " + d.name;
