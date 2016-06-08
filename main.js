@@ -25,12 +25,19 @@ $(document).ready(function () {
 		stats = data;
 
 		updateDisplay("Combat");
-	});
+		$('.table-header').text("Combat");
 
+		$("#chartSelect").change()
+
+	});
 
 	$("#categorySelect").change(function () {
 		var category = $(this).val();
+		$('.table-header').text(category);
+
 		updateDisplay(category);
+
+		$("#chartSelect").change()
 	})
 
 	function identity(d) {
@@ -84,24 +91,29 @@ $(document).ready(function () {
 			data.push(obj);
 		}
 
+
 		var convertedData = convertData(data);
 
 		updateTable(convertedData);
 
-		$("#chartSelect").change(function () {
-			var category = $(this).val();
-			createBarChart(category, convertedData);
-		});
-
 		var chartSelect = d3.select('#chartSelect');
 
 		var option = chartSelect.selectAll('option')
-			.data(convertedData.legend);
-		option.enter().append('option')
-			.attr('value', identity)
+			.data(convertedData.legend.slice(1));
+		option.enter().append('option');
+		option.attr('value', identity)
 			.attr('class', 'chart-option');
 		option.exit().remove();
 		option.text(identity);
+
+		$("#chartSelect").change(function () {
+			var category = $(this).val();
+
+			$('.chart-header').text(category);
+
+			createBarChart(category, convertedData);
+		});
+
 	}
 
 	function updateTable(data) {
@@ -134,26 +146,27 @@ $(document).ready(function () {
 	function createBarChart(category, data) {
 
 		var chartData = data.tableData.map(function (item) {
+			console.log(item, data.legend, item[data.legend.indexOf(category)], category);
 			return {
 				"name": item[data.legend.indexOf("Name")],
-				"value": parseInt((item[data.legend.indexOf(category)] || "0").replace(/,/g, ""), 10)
+				"value": parseFloat((item[data.legend.indexOf(category)] || "0").replace(/,/g, ""))
 			}
 		});
 
-		var width = 800,
+		var width = $('.chart').width(),
 			barHeight = 40;
 
 		var x = d3.scale.linear()
 			.domain([0, d3.max(chartData, function (d) {
 				return d.value;
 			})])
-			.range([0, width-50]);
+			.range([0, width]);
 
 		var chart = d3.select(".chart")
 			.attr("width", width)
 			.attr("height", barHeight * chartData.length);
 
-		var bar = chart.selectAll("g")
+		var bar = chart.selectAll(".bar")
 			.data(chartData);
 
 		/*bar.enter().append("g")
@@ -162,42 +175,33 @@ $(document).ready(function () {
 		 });*/
 
 		bar.exit().remove();
-		var newBar = bar.enter().append("g");
+		var newBar = bar.enter().append("div")
+			.attr("class", "bar");
 
-
-		newBar.append("rect");
-		newBar.append("text")
+		newBar.append("div")
 			.attr('class', 'name-text');
-		newBar.append("text")
-			.attr('class', 'value-text');
 
-		bar.attr("transform", function (d, i) {
-			return "translate(0," + i * barHeight + ")";
-		});
+		newBar.append("div")
+			.attr('class', 'rect');
 
-		bar.select("rect")
-			.attr("width", function (d) {
-				return x(d.value);
+
+		/*		bar.attr("transform", function (d, i) {
+		 return "translate(0," + i * barHeight + ")";
+		 });*/
+
+		bar.select(".rect")
+			.style("width", function (d) {
+				return x(d.value) + "px";
 			})
 			.attr("class", function (d) {
-				return d.name;
+				return "rect " + d.name;
 			})
-			.attr("height", barHeight - 1);
-
-		bar.select(".name-text")
-			.attr("x", function (d) {
-				return x(d.value) - 50;
-			})
-			.attr("y", barHeight / 2)
-			.attr("dy", ".35em")
+			.style("height", barHeight - 1)
 			.text(function (d) {
 				return d.value;
 			});
 
-		bar.select(".value-text")
-			.attr("x", -50)
-			.attr("y", barHeight / 2)
-			.attr("dy", ".35em")
+		bar.select(".name-text")
 			.text(function (d) {
 				return d.name;
 			});

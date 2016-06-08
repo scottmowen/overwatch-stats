@@ -1,29 +1,149 @@
-table, th, td {
-  border: 1px solid black; }
+@font-face {
+  font-family: "BigNoodleToo";
+  src: url("fonts/BigNoodleToo.eot?") format("eot"), url("fonts/BigNoodleToo.woff2") format("woff2"), url("fonts/BigNoodleToo.woff") format("woff"), url("fonts/BigNoodleToo.ttf") format("truetype"), url("fonts/BigNoodleToo.svg#BigNoodleToo") format("svg"); }
+@font-face {
+  font-family: "Futura";
+  src: url("fonts/Futura.eot?") format("eot"), url("fonts/Futura.woff2") format("woff2"), url("fonts/Futura.woff") format("woff"), url("fonts/Futura.ttf") format("truetype"), url("fonts/Futura.svg#Futura") format("svg"); }
+@font-face {
+  font-family: "BigNoodleTooOblique";
+  src: url("fonts/BigNoodleTooOblique.eot?") format("eot"), url("fonts/BigNoodleTooOblique.woff2") format("woff2"), url("fonts/BigNoodleTooOblique.woff") format("woff"), url("fonts/BigNoodleTooOblique.ttf") format("truetype"), url("fonts/BigNoodleTooOblique.svg#BigNoodleTooOblique") format("svg"); }
+.main-content {
+  background-image: url(background.png);
+  font-family: BigNoodleToo;
+  color: #f0edf2;
+  padding: 25px; }
 
-td, th {
-  padding: 5px;
-  text-align: center;
-  font-size: 12px; }
+.statsTable {
+  width: 100%; }
+  .statsTable td, .statsTable th {
+    padding: 5px;
+    text-align: center;
+    font-size: 20px;
+    text-shadow: 0.1rem 0.2rem 0.2rem rgba(51, 51, 51, 0.3);
+    font-family: Futura; }
+
+.table-container {
+  margin-bottom: 30px; }
+
+.table-header, .chart-header {
+  display: inline-block;
+  float: left;
+  font-family: BigNoodleTooOblique;
+  font-size: 50px; }
+
+.select-container {
+  width: 300px;
+  position: relative;
+  margin: 15px 0;
+  display: inline-block;
+  float: right;
+  height: 30px;
+  top: 20px; }
+
+.dropdown_styled {
+  position: absolute;
+  display: block;
+  width: 100%;
+  line-height: 20px;
+  padding: 4px 20px 4px 8px;
+  font-family: Futura, century gothic, arial, sans-serif;
+  text-transform: uppercase;
+  color: #f0edf2;
+  font-size: 15px;
+  background-color: transparent;
+  border: 1px solid #f0edf2;
+  border-radius: 3px;
+  z-index: 1; }
+
+.dropdown_styled:after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 6px;
+  height: 0;
+  margin-top: 3px;
+  width: 0;
+  border: 6px solid #ccc;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%); }
 
 .chart-container {
-  margin-top: 30px; }
+  margin-top: 30px;
+  clear: both; }
 
 .chart {
   margin-top: 10px;
   padding-left: 50px;
-  overflow-x: visible; }
-  .chart rect {
-    fill: #5870b6; }
+  overflow-x: visible;
+  width: 100%;
+  margin: 0 auto;
+  clear: both; }
+  .chart .bar {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    padding: .3rem;
+    border-radius: .4rem;
+    background-color: rgba(24, 34, 62, 0.7);
+    margin: 5px 0;
+    font-size: 30px; }
+  .chart .name-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    top: 8px;
+    left: -60px;
+    font-size: 30px;
+    color: #f0edf2;
+    text-shadow: 0.1rem 0.2rem 0.2rem rgba(51, 51, 51, 0.3); }
+  .chart .rect {
+    background-color: #5870b6;
+    text-align: right;
+    padding-right: 10px;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: .4rem; }
   .chart .Scott {
-    fill: #1b65c6; }
+    box-shadow: #2778e2 0px 0.2rem 0px 0px inset;
+    background-color: #1b65c6; }
   .chart .Jay {
-    fill: #6e994d; }
+    box-shadow: #82af5f 0px 0.2rem 0px 0px inset;
+    background-color: #6e994d; }
   .chart .Frank {
-    fill: #f8911b; }
+    box-shadow: #5f6472 0px 0.2rem 0px 0px inset;
+    background-color: #4c505c; }
   .chart .Sauce {
-    fill: #ff6200; }
+    box-shadow: #ff7b28 0px 0.2rem 0px 0px inset;
+    background-color: #ff6200; }
   .chart .Rizzo {
-    fill: #9adbf4; }
+    box-shadow: #faa443 0px 0.2rem 0px 0px inset;
+    background-color: #f8911b; }
+  .chart .Dan {
+    box-shadow: #98fe2a 0px 0.2rem 0px 0px inset;
+    background-color: #84fe01; }
+  .chart .Yosef {
+    box-shadow: #8a8abd 0px 0.2rem 0px 0px inset;
+    background-color: #6f6fae; }
+  .chart .Nick {
+    box-shadow: #f5ac0f 0px 0.2rem 0px 0px inset;
+    background-color: #d39308; }
+  .chart .Andy {
+    box-shadow: #7588c3 0px 0.2rem 0px 0px inset;
+    background-color: #5870b6; }
+
+.bar * {
+  display: inline-block; }
+
+.name-text {
+  width: 50px; }
 
 /*# sourceMappingURL=style.css.map */

@@ -15,29 +15,45 @@
 <script src="d3.min.js"></script>
 <script src="main.js"></script>
 
-<div class="container-fluid">
-	<select id="categorySelect">
-		<option value="Combat">Combat</option>
-		<option value="Average">Average</option>
-		<option value="Assists">Assists</option>
-		<option value="Deaths">Deaths</option>
-		<option value="Game">Game</option>
-	</select>
-	<table id="table" class="statsTable">
-		<thead>
+<div class="main-content">
+	<div class="container-fluid">
+		<div class="table-container">
+			<div class="select-container">
+				<select id="categorySelect" class="dropdown_styled">
+					<option value="Combat">Combat</option>
+					<option value="Assists">Assists</option>
+					<option value="Best">Best</option>
+					<option value="Average">Average</option>
+					<option value="Deaths">Deaths</option>
+					<option value="Match Awards">Match Awards</option>
+					<option value="Game">Game</option>
+					<option value="Miscellaneous">Miscellaneous</option>
+				</select>
+			</div>
 
-		</thead>
-		<tbody></tbody>
-	</table>
+			<h1 class="table-header"></h1>
 
-	<div class="chart-container">
-		<div class="select-container">
-			<select id="chartSelect"></select>
+			<table id="table" class="statsTable table-bordered">
+				<thead>
+
+				</thead>
+				<tbody></tbody>
+			</table>
 		</div>
 
-		<svg class="chart"></svg>
-	</div>
 
+		<div class="chart-container">
+			<div class="select-container">
+				<select id="chartSelect" class="dropdown_styled"></select>
+			</div>
+
+			<h1 class="chart-header"></h1>
+
+			<div class="chart"></div>
+		</div>
+
+	</div>
 </div>
+
 </body>
 </html>
