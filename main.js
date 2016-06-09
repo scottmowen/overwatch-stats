@@ -113,7 +113,16 @@ $(document).ready(function () {
 
 			createBarChart(category, convertedData);
 
-			animateSort();
+			setTimeout(function () {
+				animateSort();
+				/*$divs = $('.bar');
+
+				var sortedDivs = $divs.sort(function (a, b) {
+					return parseInt($(a).find(".rect").text(), 10) < parseInt($(b).find(".rect").text(), 10);
+				});
+
+				$(".chart").html(sortedDivs);*/
+			}, 2100)
 		});
 
 	}
@@ -141,7 +150,7 @@ $(document).ready(function () {
 			var promise = $this.animate({
 				top: positions[newIndex].top + "px",
 				left: positions[newIndex].left + "px"
-			}, 2000);
+			}, 1000);
 			promises.push(promise);
 		});
 
