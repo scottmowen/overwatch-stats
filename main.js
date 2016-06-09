@@ -11,6 +11,7 @@ $(document).ready(function () {
 		stats = {};
 
 	var players = [];
+	var sort = "descending";
 
 	$.getJSON("http://scottmowen.com/overwatch-stats/data/stats.json", function (data) {
 		scott = data["Scott"];
@@ -86,9 +87,11 @@ $(document).ready(function () {
 		var data = [];
 		var obj = {};
 		for (var player in stats) {
-			obj = stats[player][category];
-			obj["Name"] = player;
-			data.push(obj);
+			if (player != "undefined") {
+				obj = stats[player][category];
+				obj["Name"] = player;
+				data.push(obj);
+			}
 		}
 
 
@@ -117,11 +120,11 @@ $(document).ready(function () {
 				animateSort();
 				/*$divs = $('.bar');
 
-				var sortedDivs = $divs.sort(function (a, b) {
-					return parseInt($(a).find(".rect").text(), 10) < parseInt($(b).find(".rect").text(), 10);
-				});
+				 var sortedDivs = $divs.sort(function (a, b) {
+				 return parseFloat($(a).find(".rect").text()) < parseFloat($(b).find(".rect").text());
+				 });
 
-				$(".chart").html(sortedDivs);*/
+				 $(".chart").html(sortedDivs);*/
 			}, 2100)
 		});
 
@@ -133,7 +136,7 @@ $(document).ready(function () {
 		var positions = [];
 		var originals = $(".chart").find(".bar");
 		var sorted = originals.toArray().sort(function (a, b) {
-			return parseInt($(a).find(".rect").text(), 10) < parseInt($(b).find(".rect").text(), 10);
+			return parseFloat($(a).find(".rect").text()) < parseFloat($(b).find(".rect").text());
 		});
 
 		originals.each(function () {
@@ -144,7 +147,8 @@ $(document).ready(function () {
 			var $this = $(this);
 			var newIndex = sorted.indexOf(this);
 			sorted[newIndex] = $this.clone(); //copy the original item before messing with its positioning
-			$this.css("position", "absolute").css("top", positions[originalIndex].top + "px").css("left", positions[originalIndex].left + "px").css("background-color", "rgba(24, 34, 62, 0.7)");
+			$this.css("position", "absolute").css("top", positions[originalIndex].top + "px").css("left", positions[originalIndex].left + "px");
+			$('.bar').css("background-color", "rgba(24, 34, 62, 0.7)");
 
 			//animate to the new position
 			var promise = $this.animate({
@@ -187,6 +191,33 @@ $(document).ready(function () {
 		td.enter().append('td');
 		td.exit().remove();
 		td.text(identity);
+
+		d3.selectAll("thead th").data(data.legend).on("click", function (category) {
+			tr.sort(function (a, b) {
+				if (sort == "ascending") {
+					return parseFloat((a[data.legend.indexOf(category)]) || "0") > parseFloat((b[data.legend.indexOf(category)]) || "0");
+				}
+				else if (sort == "descending") {
+					return parseFloat((a[data.legend.indexOf(category)]) || "0") < parseFloat((b[data.legend.indexOf(category)]) || "0");
+				}
+
+			});
+
+			$('.statsTable th').removeClass('asc');
+			$('.statsTable th').removeClass('desc');
+			$('.sort-caret').remove();
+
+			if (sort == "ascending") {
+				$(this).addClass('asc');
+				$(this).append("<span class='sort-caret'></span>");
+				sort = "descending";
+			}
+			else {
+				$(this).addClass('desc');
+				$(this).append("<span class='sort-caret'></span>");
+				sort = "ascending";
+			}
+		});
 	}
 
 	function createBarChart(category, data) {

@@ -3,50 +3,49 @@
 // =============================================================================
 
 @function str-replace($string, $search, $replace: "") {
-	$index: str-index($string, $search);
+  $index: str-index($string, $search);
 
-	@if $index {
-		@return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
-	}
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
 
-	@return $string;
+  @return $string;
 }
 
 // =============================================================================
 // Font Face
 // =============================================================================
 
-@mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg) {
-	$src: null;
+@mixin font-face($name, $path, $weight: null, $style: null, $exts: eot ttf svg) {
+  $src: null;
 
-	$extmods: (
-		eot: "?",
-		svg: "#" + str-replace($name, " ", "_")
-	);
+  $extmods: (
+          eot: "?",
+          svg: "#" + str-replace($name, " ", "_")
+  );
 
-	$formats: (
-		otf: "opentype",
-		ttf: "truetype"
-	);
+  $formats: (
+          otf: "opentype",
+          ttf: "truetype"
+  );
 
-	@each $ext in $exts {
-		$extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
-		$format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
-		$src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
-	}
+  @each $ext in $exts {
+    $extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+    $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+    $src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
+  }
 
-	@font-face {
-		font-family: quote($name);
-		font-style: $style;
-		font-weight: $weight;
-		src: $src;
-	}
+  @font-face {
+    font-family: quote($name);
+    font-style: $style;
+    font-weight: $weight;
+    src: $src;
+  }
 }
 
 @include font-face(BigNoodleToo, fonts/BigNoodleToo);
 @include font-face(Futura, fonts/Futura);
 @include font-face(BigNoodleTooOblique, fonts/BigNoodleTooOblique);
-
 
 .main-content {
   background-image: url(background.png);
@@ -68,6 +67,45 @@
     text-shadow: .1rem .2rem .2rem rgba(51, 51, 51, .3);
 
     font-family: Futura;
+  }
+
+  th {
+    cursor: pointer;
+
+    &.asc, &.desc {
+      display: flex;
+      justify-content: center;
+      flex-direction: row;
+      align-items: center;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -khtml-user-select: none;
+      -ms-user-select: none;
+
+      .sort-caret {
+        content: '';
+        width: 0;
+        height: 0;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        margin-top: 5px;
+        margin-left: 5px;
+      }
+    }
+
+    &.asc {
+      .sort-caret {
+        border-top: 5px solid #f0edf2;
+      }
+
+    }
+
+    &.desc {
+      .sort-caret {
+        border-bottom: 5px solid #f0edf2;
+      }
+
+    }
   }
 
 }
@@ -115,24 +153,24 @@
 }
 
 .dropdown_styled:after {
-    content: " ";
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 6px;
-    height: 0;
-    margin-top: 3px;
-    width: 0;
-    border: 6px solid #ccc;
-    border-left-color: transparent;
-    border-right-color: transparent;
-    border-bottom-color: transparent;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 6px;
+  height: 0;
+  margin-top: 3px;
+  width: 0;
+  border: 6px solid #ccc;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
 
-  }
+}
 
 .chart-container {
   margin-top: 30px;
@@ -151,7 +189,6 @@
     position: relative;
     display: flex;
     justify-content: flex-start;
-
 
     padding: .3rem;
     border-radius: .4rem;
@@ -244,19 +281,18 @@
   display: inline-block;
 }
 
-
 // =============================================================================
 // String Replace
 // =============================================================================
 
 @function str-replace($string, $search, $replace: "") {
-	$index: str-index($string, $search);
+  $index: str-index($string, $search);
 
-	@if $index {
-		@return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
-	}
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
 
-	@return $string;
+  @return $string;
 }
 
 // =============================================================================
@@ -264,28 +300,28 @@
 // =============================================================================
 
 @mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg) {
-	$src: null;
+  $src: null;
 
-	$extmods: (
-		eot: "?",
-		svg: "#" + str-replace($name, " ", "_")
-	);
+  $extmods: (
+          eot: "?",
+          svg: "#" + str-replace($name, " ", "_")
+  );
 
-	$formats: (
-		otf: "opentype",
-		ttf: "truetype"
-	);
+  $formats: (
+          otf: "opentype",
+          ttf: "truetype"
+  );
 
-	@each $ext in $exts {
-		$extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
-		$format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
-		$src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
-	}
+  @each $ext in $exts {
+    $extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+    $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+    $src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
+  }
 
-	@font-face {
-		font-family: quote($name);
-		font-style: $style;
-		font-weight: $weight;
-		src: $src;
-	}
+  @font-face {
+    font-family: quote($name);
+    font-style: $style;
+    font-weight: $weight;
+    src: $src;
+  }
 }

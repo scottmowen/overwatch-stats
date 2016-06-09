@@ -1,12 +1,12 @@
 @font-face {
   font-family: "BigNoodleToo";
-  src: url("fonts/BigNoodleToo.eot?") format("eot"), url("fonts/BigNoodleToo.woff2") format("woff2"), url("fonts/BigNoodleToo.woff") format("woff"), url("fonts/BigNoodleToo.ttf") format("truetype"), url("fonts/BigNoodleToo.svg#BigNoodleToo") format("svg"); }
+  src: url("fonts/BigNoodleToo.eot?") format("eot"), url("fonts/BigNoodleToo.ttf") format("truetype"), url("fonts/BigNoodleToo.svg#BigNoodleToo") format("svg"); }
 @font-face {
   font-family: "Futura";
-  src: url("fonts/Futura.eot?") format("eot"), url("fonts/Futura.woff2") format("woff2"), url("fonts/Futura.woff") format("woff"), url("fonts/Futura.ttf") format("truetype"), url("fonts/Futura.svg#Futura") format("svg"); }
+  src: url("fonts/Futura.eot?") format("eot"), url("fonts/Futura.ttf") format("truetype"), url("fonts/Futura.svg#Futura") format("svg"); }
 @font-face {
   font-family: "BigNoodleTooOblique";
-  src: url("fonts/BigNoodleTooOblique.eot?") format("eot"), url("fonts/BigNoodleTooOblique.woff2") format("woff2"), url("fonts/BigNoodleTooOblique.woff") format("woff"), url("fonts/BigNoodleTooOblique.ttf") format("truetype"), url("fonts/BigNoodleTooOblique.svg#BigNoodleTooOblique") format("svg"); }
+  src: url("fonts/BigNoodleTooOblique.eot?") format("eot"), url("fonts/BigNoodleTooOblique.ttf") format("truetype"), url("fonts/BigNoodleTooOblique.svg#BigNoodleTooOblique") format("svg"); }
 .main-content {
   background-image: url(background.png);
   font-family: BigNoodleToo;
@@ -22,6 +22,29 @@
     font-size: 20px;
     text-shadow: 0.1rem 0.2rem 0.2rem rgba(51, 51, 51, 0.3);
     font-family: Futura; }
+  .statsTable th {
+    cursor: pointer; }
+    .statsTable th.asc, .statsTable th.desc {
+      display: flex;
+      justify-content: center;
+      flex-direction: row;
+      align-items: center;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -khtml-user-select: none;
+      -ms-user-select: none; }
+      .statsTable th.asc .sort-caret, .statsTable th.desc .sort-caret {
+        content: '';
+        width: 0;
+        height: 0;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        margin-top: 5px;
+        margin-left: 5px; }
+    .statsTable th.asc .sort-caret {
+      border-top: 5px solid #f0edf2; }
+    .statsTable th.desc .sort-caret {
+      border-bottom: 5px solid #f0edf2; }
 
 .table-container {
   margin-bottom: 30px; }
