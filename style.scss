@@ -93,14 +93,14 @@
       }
     }
 
-    &.asc {
+    &.desc {
       .sort-caret {
         border-top: 5px solid #f0edf2;
       }
 
     }
 
-    &.desc {
+    &.asc {
       .sort-caret {
         border-bottom: 5px solid #f0edf2;
       }

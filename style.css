@@ -41,9 +41,9 @@
         border-right: 5px solid transparent;
         margin-top: 5px;
         margin-left: 5px; }
-    .statsTable th.asc .sort-caret {
-      border-top: 5px solid #f0edf2; }
     .statsTable th.desc .sort-caret {
+      border-top: 5px solid #f0edf2; }
+    .statsTable th.asc .sort-caret {
       border-bottom: 5px solid #f0edf2; }
 
 .table-container {

@@ -136,7 +136,13 @@ $(document).ready(function () {
 		var positions = [];
 		var originals = $(".chart").find(".bar");
 		var sorted = originals.toArray().sort(function (a, b) {
-			return parseFloat($(a).find(".rect").text()) < parseFloat($(b).find(".rect").text());
+			if ($(a).find(".rect").text().indexOf(":") == -1) {
+				return parseFloat($(a).find(".rect").text()) < parseFloat($(b).find(".rect").text());
+			}
+			else {
+				return convertToSeconds($(a).find(".rect").text()) < convertToSeconds($(b).find(".rect").text());
+			}
+
 		});
 
 		originals.each(function () {
@@ -195,10 +201,20 @@ $(document).ready(function () {
 		d3.selectAll("thead th").data(data.legend).on("click", function (category) {
 			tr.sort(function (a, b) {
 				if (sort == "ascending") {
-					return parseFloat((a[data.legend.indexOf(category)]) || "0") > parseFloat((b[data.legend.indexOf(category)]) || "0");
+					if (category.indexOf("Time") != -1) {
+						return (a[data.legend.indexOf(category)] || "0") > (b[data.legend.indexOf(category)] || "0");
+					}
+					else {
+						return parseFloat((a[data.legend.indexOf(category)]) || "0") > parseFloat((b[data.legend.indexOf(category)]) || "0");
+					}
 				}
 				else if (sort == "descending") {
-					return parseFloat((a[data.legend.indexOf(category)]) || "0") < parseFloat((b[data.legend.indexOf(category)]) || "0");
+					if (category.indexOf("Time") != -1) {
+						return (a[data.legend.indexOf(category)] || "0") < (b[data.legend.indexOf(category)] || "0");
+					}
+					else {
+						return parseFloat((a[data.legend.indexOf(category)]) || "0") < parseFloat((b[data.legend.indexOf(category)]) || "0");
+					}
 				}
 
 			});
@@ -220,13 +236,37 @@ $(document).ready(function () {
 		});
 	}
 
+	function convertToSeconds(timeString) {
+		var time = timeString.split(':');
+		if (time.length == 3) {
+			return parseInt(time[0]) * 60 * 60 + parseInt(time[1]) * 60 + parseInt(time[2]);
+		}
+
+		if (time.length == 2) {
+			return parseInt(time[0]) * 60 + parseInt(time[1]);
+		}
+	}
+
+
 	function createBarChart(category, data) {
 
 		var chartData = data.tableData.map(function (item) {
-			console.log(item, data.legend, item[data.legend.indexOf(category)], category);
-			return {
-				"name": item[data.legend.indexOf("Name")],
-				"value": parseFloat((item[data.legend.indexOf(category)] || "0").replace(/,/g, ""))
+			if (item[data.legend.indexOf(category)] && item[data.legend.indexOf(category)].indexOf(':') != -1) {
+				var time = item[data.legend.indexOf(category)];
+
+				var seconds = convertToSeconds(time);
+
+				return {
+					"name": item[data.legend.indexOf("Name")],
+					"value": seconds,
+					"displayVal": item[data.legend.indexOf(category)]
+				}
+			}
+			else {
+				return {
+					"name": item[data.legend.indexOf("Name")],
+					"value": parseFloat((item[data.legend.indexOf(category)] || "0").replace(/,/g, ""))
+				}
 			}
 		});
 
@@ -278,7 +318,12 @@ $(document).ready(function () {
 			})
 			.style("height", barHeight - 1)
 			.text(function (d) {
-				return d.value;
+				if (d.displayVal) {
+					return d.displayVal;
+				}
+				else {
+					return d.value;
+				}
 			});
 
 		bar.select(".name-text")
