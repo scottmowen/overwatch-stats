@@ -205,7 +205,7 @@ $(document).ready(function () {
 						return (a[data.legend.indexOf(category)] || "0") > (b[data.legend.indexOf(category)] || "0");
 					}
 					else {
-						return parseFloat((a[data.legend.indexOf(category)]) || "0") > parseFloat((b[data.legend.indexOf(category)]) || "0");
+						return parseFloat((a[data.legend.indexOf(category)] || "0").replace(/,/g, "")) > parseFloat((b[data.legend.indexOf(category)] || "0").replace(/,/g, ""));
 					}
 				}
 				else if (sort == "descending") {
@@ -213,7 +213,7 @@ $(document).ready(function () {
 						return (a[data.legend.indexOf(category)] || "0") < (b[data.legend.indexOf(category)] || "0");
 					}
 					else {
-						return parseFloat((a[data.legend.indexOf(category)]) || "0") < parseFloat((b[data.legend.indexOf(category)]) || "0");
+						return parseFloat((a[data.legend.indexOf(category)] || "0").replace(/,/g, "")) < parseFloat((b[data.legend.indexOf(category)] || "0").replace(/,/g, ""));
 					}
 				}
 
