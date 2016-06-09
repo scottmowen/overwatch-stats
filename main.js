@@ -125,7 +125,7 @@ $(document).ready(function () {
 				 });
 
 				 $(".chart").html(sortedDivs);*/
-			}, 2100)
+			}, 0)
 		});
 
 	}
