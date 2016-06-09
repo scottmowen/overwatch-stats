@@ -11,7 +11,8 @@
   background-image: url(background.png);
   font-family: BigNoodleToo;
   color: #f0edf2;
-  padding: 25px; }
+  padding: 25px;
+  min-height: 1250px; }
 
 .statsTable {
   width: 100%; }
@@ -101,7 +102,7 @@
     justify-content: center;
     position: absolute;
     top: 8px;
-    left: -60px;
+    left: -70px;
     font-size: 30px;
     color: #f0edf2;
     text-shadow: 0.1rem 0.2rem 0.2rem rgba(51, 51, 51, 0.3); }
@@ -137,7 +138,7 @@
   .chart .Dan {
     box-shadow: #98fe2a 0px 0.2rem 0px 0px inset;
     background-color: #84fe01; }
-  .chart .Yosef {
+  .chart .Yoseph {
     box-shadow: #8a8abd 0px 0.2rem 0px 0px inset;
     background-color: #6f6fae; }
   .chart .Nick {
@@ -149,8 +150,5 @@
 
 .bar * {
   display: inline-block; }
-
-.name-text {
-  width: 50px; }
 
 /*# sourceMappingURL=style.css.map */

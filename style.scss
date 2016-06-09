@@ -53,6 +53,7 @@
   font-family: BigNoodleToo;
   color: #f0edf2;
   padding: 25px;
+  min-height: 1250px;
 
 }
 
@@ -167,7 +168,7 @@
     justify-content: center;
     position: absolute;
     top: 8px;
-    left: -60px;
+    left: -70px;
 
     font-size: 30px;
 
@@ -223,7 +224,7 @@
     background-color: rgb(132, 254, 1);
   }
 
-  .Yosef {
+  .Yoseph {
     box-shadow: rgb(138, 138, 189) 0px 0.2rem 0px 0px inset;
     background-color: rgb(111, 111, 174);
   }
@@ -243,9 +244,6 @@
   display: inline-block;
 }
 
-.name-text {
-  width: 50px;
-}
 
 // =============================================================================
 // String Replace

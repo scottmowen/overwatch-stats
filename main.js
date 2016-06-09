@@ -112,8 +112,45 @@ $(document).ready(function () {
 			$('.chart-header').text(category);
 
 			createBarChart(category, convertedData);
+
+			animateSort();
 		});
 
+	}
+
+
+	function animateSort() {
+		var promises = [];
+		var positions = [];
+		var originals = $(".chart").find(".bar");
+		var sorted = originals.toArray().sort(function (a, b) {
+			return parseInt($(a).find(".rect").text(), 10) < parseInt($(b).find(".rect").text(), 10);
+		});
+
+		originals.each(function () {
+			//store original positions
+			positions.push($(this).position());
+		}).each(function (originalIndex) {
+			//change items to absolute position
+			var $this = $(this);
+			var newIndex = sorted.indexOf(this);
+			sorted[newIndex] = $this.clone(); //copy the original item before messing with its positioning
+			$this.css("position", "absolute").css("top", positions[originalIndex].top + "px").css("left", positions[originalIndex].left + "px").css("background-color", "rgba(24, 34, 62, 0.7)");
+
+			//animate to the new position
+			var promise = $this.animate({
+				top: positions[newIndex].top + "px",
+				left: positions[newIndex].left + "px"
+			}, 2000);
+			promises.push(promise);
+		});
+
+		//instead of leaving the items out-of-order and positioned, replace them in sorted order
+		$.when.apply($, promises).done(function () {
+			originals.each(function (index) {
+				$(this).replaceWith(sorted[index]);
+			});
+		});
 	}
 
 	function updateTable(data) {
