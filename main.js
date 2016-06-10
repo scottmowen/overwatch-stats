@@ -172,6 +172,8 @@ $(document).ready(function () {
 		});
 	}
 
+	var sortColumn;
+
 	function updateTable(data) {
 
 		var table = d3.select('table');
@@ -199,6 +201,10 @@ $(document).ready(function () {
 		td.text(identity);
 
 		d3.selectAll("thead th").data(data.legend).on("click", function (category) {
+			if (sortColumn != category) {
+				sort = "descending";
+				sortColumn = category;
+			}
 			tr.sort(function (a, b) {
 				if (sort == "ascending") {
 					if (category.indexOf("Time") != -1) {
