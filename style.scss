@@ -1,0 +1,327 @@
+// =============================================================================
+// String Replace
+// =============================================================================
+
+@function str-replace($string, $search, $replace: "") {
+  $index: str-index($string, $search);
+
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+
+  @return $string;
+}
+
+// =============================================================================
+// Font Face
+// =============================================================================
+
+@mixin font-face($name, $path, $weight: null, $style: null, $exts: eot ttf svg) {
+  $src: null;
+
+  $extmods: (
+          eot: "?",
+          svg: "#" + str-replace($name, " ", "_")
+  );
+
+  $formats: (
+          otf: "opentype",
+          ttf: "truetype"
+  );
+
+  @each $ext in $exts {
+    $extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+    $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+    $src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
+  }
+
+  @font-face {
+    font-family: quote($name);
+    font-style: $style;
+    font-weight: $weight;
+    src: $src;
+  }
+}
+
+@include font-face(BigNoodleToo, fonts/BigNoodleToo);
+@include font-face(Futura, fonts/Futura);
+@include font-face(BigNoodleTooOblique, fonts/BigNoodleTooOblique);
+
+.main-content {
+  background-image: url(background.png);
+  font-family: BigNoodleToo;
+  color: #f0edf2;
+  padding: 25px;
+  min-height: 1250px;
+
+}
+
+.statsTable {
+  width: 100%;
+
+  td, th {
+    padding: 5px;
+    text-align: center;
+    font-size: 20px;
+
+    text-shadow: .1rem .2rem .2rem rgba(51, 51, 51, .3);
+
+    font-family: Futura;
+  }
+
+  th {
+    cursor: pointer;
+
+    &.asc, &.desc {
+      display: flex;
+      justify-content: center;
+      flex-direction: row;
+      align-items: center;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -khtml-user-select: none;
+      -ms-user-select: none;
+
+      .sort-caret {
+        content: '';
+        width: 0;
+        height: 0;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        margin-top: 5px;
+        margin-left: 5px;
+      }
+    }
+
+    &.desc {
+      .sort-caret {
+        border-top: 5px solid #f0edf2;
+      }
+
+    }
+
+    &.asc {
+      .sort-caret {
+        border-bottom: 5px solid #f0edf2;
+      }
+
+    }
+  }
+
+}
+
+.table-container {
+  margin-bottom: 30px;
+}
+
+.table-header, .chart-header {
+  display: inline-block;
+  float: left;
+  font-family: BigNoodleTooOblique;
+  font-size: 50px;
+}
+
+.select-container {
+  width: 300px;
+  position: relative;
+
+  margin: 15px 0;
+  display: inline-block;
+  float: right;
+  height: 30px;
+  top: 20px;
+}
+
+.dropdown_styled {
+  position: absolute;
+  display: block;
+  width: 100%;
+  line-height: 20px;
+  padding: 4px 20px 4px 8px;
+  font-family: Futura, century gothic, arial, sans-serif;
+  text-transform: uppercase;
+  color: #f0edf2;
+  font-size: 15px;
+  background-color: transparent;
+  border: 1px solid #f0edf2;
+  border-radius: 3px;
+  z-index: 1;
+
+  option {
+    color: black;
+  }
+}
+
+.dropdown_styled:after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 6px;
+  height: 0;
+  margin-top: 3px;
+  width: 0;
+  border: 6px solid #ccc;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+
+}
+
+.chart-container {
+  margin-top: 30px;
+  clear: both;
+}
+
+.chart {
+  margin-top: 10px;
+  padding-left: 50px;
+  overflow-x: visible;
+  width: 100%;
+  margin: 0 auto;
+  clear: both;
+
+  .bar {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+
+    padding: .3rem;
+    border-radius: .4rem;
+    background-color: rgba(24, 34, 62, .7);
+    margin: 5px 0;
+
+    font-size: 30px;
+
+  }
+
+  .name-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    top: 8px;
+    left: -70px;
+
+    font-size: 30px;
+
+    color: #f0edf2;
+    text-shadow: .1rem .2rem .2rem rgba(51, 51, 51, .3);
+
+  }
+
+  .rect {
+    text-align: right;
+    padding-right: 10px;
+    padding-left: 5px;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    text-shadow: .1rem .2rem .2rem rgba(51, 51, 51, .3);
+
+    border-radius: .4rem;
+
+    min-width: 20px;
+    -webkit-transition: width 1s; /* Safari */
+    transition: width 1s;
+  }
+
+  .Scott {
+    box-shadow: rgb(39, 120, 226) 0px 0.2rem 0px 0px inset;
+    background-color: rgb(27, 101, 198);
+  }
+
+  .Jay {
+    box-shadow: rgb(130, 175, 95) 0px 0.2rem 0px 0px inset;
+    background-color: rgb(110, 153, 77);
+  }
+  .Frank {
+    box-shadow: rgb(95, 100, 114) 0px 0.2rem 0px 0px inset;
+    background-color: rgb(76, 80, 92);
+  }
+
+  .Sauce {
+    box-shadow: rgb(255, 123, 40) 0px 0.2rem 0px 0px inset;
+    background-color: rgb(255, 98, 0);
+  }
+
+  .Rizzo {
+    box-shadow: rgb(250, 164, 67) 0px 0.2rem 0px 0px inset;
+    background-color: rgb(248, 145, 27);
+  }
+
+  .Dan {
+    box-shadow: rgb(152, 254, 42) 0px 0.2rem 0px 0px inset;
+    background-color: rgb(132, 254, 1);
+  }
+
+  .Yoseph {
+    box-shadow: rgb(138, 138, 189) 0px 0.2rem 0px 0px inset;
+    background-color: rgb(111, 111, 174);
+  }
+
+  .Nick {
+    box-shadow: rgb(245, 172, 15) 0px 0.2rem 0px 0px inset;
+    background-color: rgb(211, 147, 8);
+  }
+
+  .Andy {
+    box-shadow: rgb(117, 136, 195) 0px 0.2rem 0px 0px inset;
+    background-color: rgb(88, 112, 182);
+  }
+}
+
+.bar * {
+  display: inline-block;
+}
+
+// =============================================================================
+// String Replace
+// =============================================================================
+
+@function str-replace($string, $search, $replace: "") {
+  $index: str-index($string, $search);
+
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+
+  @return $string;
+}
+
+// =============================================================================
+// Font Face
+// =============================================================================
+
+@mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg) {
+  $src: null;
+
+  $extmods: (
+          eot: "?",
+          svg: "#" + str-replace($name, " ", "_")
+  );
+
+  $formats: (
+          otf: "opentype",
+          ttf: "truetype"
+  );
+
+  @each $ext in $exts {
+    $extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+    $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+    $src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
+  }
+
+  @font-face {
+    font-family: quote($name);
+    font-style: $style;
+    font-weight: $weight;
+    src: $src;
+  }
+}
