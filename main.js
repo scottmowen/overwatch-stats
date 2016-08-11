@@ -22,9 +22,11 @@ $(document).ready(function () {
 	$('#mode-toggle').change(function() {
       if ($(this).prop('checked')) {
 		  viewingCompetitive = true;
+		  updateDisplay($("#categorySelect").val());
 	  }
 	  else {
 		  viewingCompetitive = false;
+		  updateDisplay($("#categorySelect").val());
 	  }
     })
 
@@ -348,22 +350,4 @@ $(document).ready(function () {
 					return d.displayVal;
 				}
 				else {
-					return d.value;
-				}
-			});
-
-		bar.select(".name-text")
-			.text(function (d) {
-				return d.name;
-			});
-	}
-
-	function getColumns(data) {
-		var cols = [];
-		for (var key in data) {
-			cols.push(key);
-		}
-	}
-
-
-})
+					ret
