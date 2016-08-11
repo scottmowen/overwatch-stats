@@ -170,6 +170,9 @@
   .chart .Andy {
     box-shadow: #7588c3 0px 0.2rem 0px 0px inset;
     background-color: #5870b6; }
+  .chart .Steve {
+    box-shadow: #ffa8e0 0px 0.2rem 0px 0px inset;
+    background-color: #ff7fd1; }
 
 .bar * {
   display: inline-block; }
