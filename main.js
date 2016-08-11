@@ -34,7 +34,7 @@ $(document).ready(function () {
 		scott = data["Scott"];
 		frank = data["Frank"];
 		jay = data["Jay"];
-		//sauce = data["Sauce"];
+		sauce = data["Sauce"];
 		rizzo = data["Rizzo"];
 		dan = data["Dan"];
 		yoseph = data["Yoseph"];
