@@ -24,20 +24,16 @@ $(document).ready(function () {
         if ($(this).prop('checked')) {
             viewingCompetitive = true;
             $('.table-header').text("Competitive");
-            updateDisplay($("#categorySelect .table-dropdown").text());
-            //updateDisplay($("#categorySelect").val());
-            //$("#chartSelect").change()
+            updateDisplay($("#tableDropdown").text());
             $(".chart-dropdown li a").first().click();
         }
         else {
             viewingCompetitive = false;
             $('.table-header').text("Quick Play");
-            updateDisplay($("#categorySelect .table-dropdown").text());
-            //updateDisplay($("#categorySelect").val());
-            //$("#chartSelect").change()
+            updateDisplay($("#tableDropdown").text());
             $(".chart-dropdown li a").first().click();
         }
-    })
+    });
 
     $.getJSON("data/stats.json", function (data) {
         scott = data["Scott"];
@@ -59,7 +55,11 @@ $(document).ready(function () {
     });
 
     $(".table-dropdown li a").click(function (e) {
+        e.stopPropagation();
         e.preventDefault();
+
+        //close the dropdown
+        $('#tableDropdown').dropdown('toggle');
 
         var category = $(this).text();
 
@@ -72,18 +72,13 @@ $(document).ready(function () {
 
             //$("#chartSelect").change()
 
+            $(".chart-dropdown li a").removeClass('selected');
+
             $(".chart-dropdown li a").first().click();
         }
 
     });
 
-    // $("#categorySelect").change(function () {
-    //     var category = $(this).val();
-    //
-    //     updateDisplay(category);
-    //
-    //     $("#chartSelect").change()
-    // });
 
     function identity(d) {
         return d
@@ -127,6 +122,8 @@ $(document).ready(function () {
         }
     }
 
+    var convertedData;
+
     function updateDisplay(category) {
         var data = [];
         var obj = {};
@@ -144,41 +141,11 @@ $(document).ready(function () {
         }
 
 
-        var convertedData = convertData(data);
+        convertedData = convertData(data);
 
         updateTable(convertedData);
 
-        //var chartSelect = d3.select('#chartSelect');
-
-
-        /*var option = chartDropdown.selectAll('option')
-            .data(convertedData.legend.slice(1));
-        option.enter().append('option');
-        option.attr('value', identity)
-            .attr('class', 'chart-option');
-        option.exit().remove();
-        option.text(identity);*/
-
-       /* $("#chartSelect").change(function () {
-            var category = $(this).val();
-
-            $('.chart-header').text(category);
-
-            createBarChart(category, convertedData);
-
-            setTimeout(function () {
-                animateSort();
-                /!*$divs = $('.bar');
-
-                 var sortedDivs = $divs.sort(function (a, b) {
-                 return parseFloat($(a).find(".rect").text()) < parseFloat($(b).find(".rect").text());
-                 });
-
-                 $(".chart").html(sortedDivs);*!/
-            }, 0)
-        });*/
-
-       var chartDropdown = d3.select('.chart-dropdown');
+        var chartDropdown = d3.select('.chart-dropdown');
 
         var item = chartDropdown.selectAll('li')
             .data(convertedData.legend.slice(1));
@@ -190,12 +157,22 @@ $(document).ready(function () {
         item.select('a')
             .text(identity);
 
+        $(".chart-dropdown li a").unbind('click');
         $(".chart-dropdown li a").click(function (e) {
+
+            e.stopPropagation();
             e.preventDefault();
 
             var category = $(this).text();
+             //close the dropdown
 
-            if (!$(this).hasClass('selected')) {
+                if($("#chartSelect").hasClass('open')) {
+                    $('#chartDropdown').dropdown('toggle');
+                }
+
+            //if (!$(this).hasClass('selected')) {
+
+                //remove selected class in case it's already on there, otherwise function won't run
                 $('.chart-dropdown .selected').removeClass('selected');
                 $(this).addClass('selected');
 
@@ -207,15 +184,15 @@ $(document).ready(function () {
                     animateSort();
                     /* $divs = $('.bar');
 
-                    var sortedDivs = $divs.sort(function (a, b) {
-                        return parseFloat($(a).find(".rect").text()) < parseFloat($(b).find(".rect").text());
-                    });
+                     var sortedDivs = $divs.sort(function (a, b) {
+                     return parseFloat($(a).find(".rect").text()) < parseFloat($(b).find(".rect").text());
+                     });
 
-                    $(".chart").html(sortedDivs);
-                    */
+                     $(".chart").html(sortedDivs);
+                     */
                 }, 0)
 
-            }
+           // }
 
         });
 
