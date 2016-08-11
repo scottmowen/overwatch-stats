@@ -12,7 +12,7 @@ $(document).ready(function () {
 
 	var players = [];
 	var sort = "descending";
-	var viewingCompetitive = false;
+	var viewingCompetitive = true;
 
 	$('#mode-toggle').bootstrapToggle({
       on: 'Competitive',
