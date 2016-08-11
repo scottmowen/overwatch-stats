@@ -8,7 +8,8 @@
   font-family: "BigNoodleTooOblique";
   src: url("fonts/BigNoodleTooOblique.eot?") format("eot"), url("fonts/BigNoodleTooOblique.ttf") format("truetype"), url("fonts/BigNoodleTooOblique.svg#BigNoodleTooOblique") format("svg"); }
 .main-content {
-  background-image: url(background.png);
+  background: url(background.png);
+  background-color: #293347;
   font-family: BigNoodleToo;
   color: #f0edf2;
   padding: 25px;
@@ -46,23 +47,52 @@
     .statsTable th.asc .sort-caret {
       border-bottom: 5px solid #f0edf2; }
 
+.mode-header {
+  font-size: 50px;
+  text-align: center;
+  font-family: BigNoodleTooOblique; }
+
 .table-container {
   margin-bottom: 30px; }
+
+.title-container {
+  background: url(title-white.png) no-repeat;
+  background-size: contain;
+  max-width: 600px;
+  height: 100px;
+  margin: 0 auto; }
+
+.header-subtitle {
+  margin-top: 0px;
+  text-align: center; }
 
 .table-header, .chart-header {
   display: inline-block;
   float: left;
   font-family: BigNoodleTooOblique;
-  font-size: 50px; }
+  font-size: 50px;
+  display: none; }
+
+.toggle {
+  display: inline-block;
+  float: left;
+  width: 170px !important;
+  height: 45px !important;
+  margin-bottom: 15px; }
+  .toggle .btn {
+    font-size: 36px;
+    line-height: 45px;
+    padding: 0px 12px; }
 
 .select-container {
   width: 300px;
   position: relative;
-  margin: 15px 0;
   display: inline-block;
-  float: right;
-  height: 30px;
-  top: 20px; }
+  float: right; }
+
+#categorySelect, #chartSelect {
+  font-size: 36px;
+  font-family: BigNoodleTooOblique; }
 
 .dropdown_styled {
   position: absolute;
@@ -102,6 +132,8 @@
 .chart-container {
   margin-top: 30px;
   clear: both; }
+  .chart-container .select-container {
+    margin-bottom: 55px; }
 
 .chart {
   margin-top: 10px;

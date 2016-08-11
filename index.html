@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Overwatch Stats</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
-	      integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
-	<link rel="stylesheet" href="style.css">
-	<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Overwatch Stats</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
+          integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
 
 </head>
 <body>
@@ -19,45 +19,71 @@
 <script src="main.js"></script>
 
 <div class="main-content">
-	<div class="container-fluid">
-		<input id="mode-toggle" checked type="checkbox">
-		<h1 class="mode-header">Competitive</h1>
-		<div class="table-container">
-			<div class="select-container">
-				<select id="categorySelect" class="dropdown_styled">
-					<option value="Combat">Combat</option>
-					<option value="Assists">Assists</option>
-					<option value="Best">Best</option>
-					<option value="Average">Average</option>
-					<option value="Deaths">Deaths</option>
-					<option value="Match Awards">Match Awards</option>
-					<option value="Game">Game</option>
-					<option value="Miscellaneous">Miscellaneous</option>
-				</select>
-			</div>
+    <div class="container-fluid">
+        <div class="title-container"></div>
+        <h1 class="header-subtitle">Stat Tracker</h1>
+        <div class="table-container">
+            <input id="mode-toggle" checked type="checkbox">
+            <!--<div class="select-container">
+                <select id="categorySelect" class="dropdown_styled">
+                    <option value="Combat">Combat</option>
+                    <option value="Assists">Assists</option>
+                    <option value="Best">Best</option>
+                    <option value="Average">Average</option>
+                    <option value="Deaths">Deaths</option>
+                    <option value="Match Awards">Match Awards</option>
+                    <option value="Game">Game</option>
+                    <option value="Miscellaneous">Miscellaneous</option>
+                </select>
+            </div>-->
+            <div class="dropdown select-container" id="categorySelect">
+                <button class="btn btn-default dropdown-toggle" type="button" id="tableDropdown" data-toggle="dropdown" aria-haspopup="true">
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu table-dropdown" aria-labelledby="tableDropdown">
+                    <li><a href="#">Combat</a></li>
+                    <li><a href="#">Assists</a></li>
+                    <li><a href="#">Best</a></li>
+                    <li><a href="#">Average</a></li>
+                    <li><a href="#">Deaths</a></li>
+                    <li><a href="#">Match Awards</a></li>
+                    <li><a href="#">Game</a></li>
+                    <li><a href="#">Miscellaneous</a></li>
+                </ul>
+            </div>
 
-			<h1 class="table-header"></h1>
 
-			<table id="table" class="statsTable table-bordered table table-responsive">
-				<thead>
+            <h1 class="table-header"></h1>
 
-				</thead>
-				<tbody></tbody>
-			</table>
-		</div>
+            <table id="table" class="statsTable table-bordered table table-responsive">
+                <thead>
+
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
 
 
-		<div class="chart-container">
-			<div class="select-container">
-				<select id="chartSelect" class="dropdown_styled"></select>
-			</div>
+        <div class="chart-container">
+            <!--<div class="select-container">
+                <select id="chartSelect" class="dropdown_styled"></select>
+            </div>-->
 
-			<h1 class="chart-header"></h1>
+            <div class="dropdown select-container" id="chartSelect">
+                <button class="btn btn-default dropdown-toggle" type="button" id="chartDropdown" data-toggle="dropdown" aria-haspopup="true">
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu chart-dropdown" aria-labelledby="chartDropdown">
 
-			<div class="chart"></div>
-		</div>
+                </ul>
+            </div>
 
-	</div>
+            <h1 class="chart-header"></h1>
+
+            <div class="chart"></div>
+        </div>
+
+    </div>
 </div>
 
 </body>

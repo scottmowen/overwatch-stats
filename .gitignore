@@ -1,5 +1,8 @@
 .DS_Store
+node_modules/
 node_modules/*
 .idea/
 build/
-data/*
+data/
+style.css.map
+
