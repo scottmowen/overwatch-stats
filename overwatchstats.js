@@ -1,7 +1,10 @@
 var title, value;
 var result = {};
 var json = {};
-var featured = {};
+var quickplay = {};
+var competitive = {};
+var qpFeatured = {};
+var compFeatured = {};
 
 json.gamertag =  $('.header-masthead').text();
 
@@ -14,6 +17,9 @@ switch (json.gamertag) {
 		break;
 	case "Soresukai":
 		json.name = "Frank";
+		break;
+	case "Mick Finesse":
+		json.name = "Steve";
 		break;
 	case "The Sauce":
 		json.name = "Sauce";
@@ -28,7 +34,7 @@ switch (json.gamertag) {
 		json.name = "Dan";
 		break;
 	case "Yoble 7":
-		json.name = "Yosef";
+		json.name = "Yoseph";
 		break;
 	case "LordRurisk":
 		json.name = "Nick";
@@ -41,17 +47,18 @@ switch (json.gamertag) {
 
 }
 
+//Competitive Stats
 $('.card-content').each(function () {
 	var data = $(this);
 	title = data.children('.card-copy').text();
 	value = data.children('.card-heading').text();
 
-	featured[title] = value;
+	compFeatured[title] = value;
 })
 
-json["featured"] = featured;
+competitive["featured"] = compFeatured;
 
-$('.card-stat-block').each(function () {
+$('.is-active .card-stat-block').each(function () {
 	var data = $(this);
 
 	var statBlock = {};
@@ -68,8 +75,42 @@ $('.card-stat-block').each(function () {
 
 		statBlock[key] = value;
 	})
-	json[statName] = statBlock;
+	competitive[statName] = statBlock;
 })
 
-result = json;
+json["competitive"] = competitive;
 
+// Quickplay Stats
+$('#quick-play .card-content').each(function () {
+	var data = $(this);
+	title = data.children('.card-copy').text();
+	value = data.children('.card-heading').text();
+
+	qpFeatured[title] = value;
+})
+
+quickplay["featured"] = qpFeatured;
+
+$('#quick-play .is-active .card-stat-block').each(function () {
+	var data = $(this);
+
+	var statBlock = {};
+
+	var statName = data.children('.data-table').children('thead').children('tr').children('th').text();
+
+	data.children('.data-table').children('tbody').children('tr').each(function () {
+		var stats = $(this);
+
+		var key, value;
+
+		key = stats.children('td').first().text();
+		value = stats.children('td').last().text();
+
+		statBlock[key] = value;
+	})
+	quickplay[statName] = statBlock;
+})
+
+json["quickplay"] = quickplay;
+
+result = json;

@@ -8,14 +8,6 @@
     "cheerio": "latest",
     "cron": "^1.1.0",
     "express": "latest",
-    "request": "latest",
-    "wscraper": {
-      "dependencies": {
-        "iconv": {
-          "version": "latest"
-        }
-      },
-      "version": "latest"
-    }
+    "request": "latest"
   }
 }

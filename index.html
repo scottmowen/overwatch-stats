@@ -5,25 +5,59 @@
 	<title>Overwatch Stats</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
 	      integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+	<link rel="stylesheet" href="style.css">
+	<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+
 </head>
 <body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"
         integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
-<script src="https://d3js.org/d3.v4.0.0-alpha.44.min.js"></script>
+<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+
+<script src="d3.min.js"></script>
 <script src="main.js"></script>
 
-<div class="container-fluid">
-	<select id="categorySelect">
-		<option value="Combat">Combat</option>
-		<option value="Average">Combat</option>
-		<option value="Assists">Combat</option>
-		<option value="Deaths">Combat</option>
-		<option value="Game">Combat</option>
-	</select>
-	<table id="table">
+<div class="main-content">
+	<div class="container-fluid">
+		<input id="mode-toggle" checked type="checkbox">
+		<div class="table-container">
+			<div class="select-container">
+				<select id="categorySelect" class="dropdown_styled">
+					<option value="Combat">Combat</option>
+					<option value="Assists">Assists</option>
+					<option value="Best">Best</option>
+					<option value="Average">Average</option>
+					<option value="Deaths">Deaths</option>
+					<option value="Match Awards">Match Awards</option>
+					<option value="Game">Game</option>
+					<option value="Miscellaneous">Miscellaneous</option>
+				</select>
+			</div>
 
-	</table>
+			<h1 class="table-header"></h1>
+
+			<table id="table" class="statsTable table-bordered table table-responsive">
+				<thead>
+
+				</thead>
+				<tbody></tbody>
+			</table>
+		</div>
+
+
+		<div class="chart-container">
+			<div class="select-container">
+				<select id="chartSelect" class="dropdown_styled"></select>
+			</div>
+
+			<h1 class="chart-header"></h1>
+
+			<div class="chart"></div>
+		</div>
+
+	</div>
 </div>
+
 </body>
 </html>
