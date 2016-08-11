@@ -22,11 +22,13 @@ $(document).ready(function () {
 	$('#mode-toggle').change(function() {
       if ($(this).prop('checked')) {
 		  viewingCompetitive = true;
+		  $('.mode-header').text("Competitive");
 		  updateDisplay($("#categorySelect").val());
 		  $("#chartSelect").change()
 	  }
 	  else {
 		  viewingCompetitive = false;
+		  $('.mode-header').text("Quick Play");
 		  updateDisplay($("#categorySelect").val());
 		  $("#chartSelect").change()
 	  }
