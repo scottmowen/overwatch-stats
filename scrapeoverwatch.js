@@ -12,7 +12,7 @@ var urls = [
 	"/en-us/career/xbl/Soresukai",
 	"/en-us/career/xbl/jaytay4589",
 	"/en-us/career/xbl/Mick%20Finesse",
-	"/en-us/career/xbl/The%20Sauce",
+	//"/en-us/career/xbl/The%20Sauce",
 	"/en-us/career/xbl/Rizzo%20H2P",
 	"/en-us/career/xbl/Mr%20DANgerous03",
 	"/en-us/career/xbl/Yoble%207",
