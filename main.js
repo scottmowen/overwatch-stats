@@ -23,10 +23,12 @@ $(document).ready(function () {
       if ($(this).prop('checked')) {
 		  viewingCompetitive = true;
 		  updateDisplay($("#categorySelect").val());
+		  $("#chartSelect").change()
 	  }
 	  else {
 		  viewingCompetitive = false;
 		  updateDisplay($("#categorySelect").val());
+		  $("#chartSelect").change()
 	  }
     })
 
@@ -45,7 +47,7 @@ $(document).ready(function () {
 		updateDisplay("Combat");
 		$('.table-header').text("Combat");
 
-		$("#chartSelect").change()
+		$("#chartSelect").change();
 
 	});
 
