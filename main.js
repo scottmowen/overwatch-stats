@@ -350,4 +350,22 @@ $(document).ready(function () {
 					return d.displayVal;
 				}
 				else {
-					ret
+					return d.value;
+				}
+			});
+
+		bar.select(".name-text")
+			.text(function (d) {
+				return d.name;
+			});
+	}
+
+	function getColumns(data) {
+		var cols = [];
+		for (var key in data) {
+			cols.push(key);
+		}
+	}
+
+
+})

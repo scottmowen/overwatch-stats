@@ -80,39 +80,22 @@
     },
     "quickplay": {
         "featured": {
-<<<<<<< HEAD
             "Eliminations - Average": "11.83",
             "Damage Done - Average": "4,751",
             "Deaths - Average": "6.68",
             "Final Blows - Average": "6.6",
             "Healing Done - Average": "754",
-=======
-            "Eliminations - Average": "11.81",
-            "Damage Done - Average": "4,746",
-            "Deaths - Average": "6.69",
-            "Final Blows - Average": "6.59",
-            "Healing Done - Average": "756",
->>>>>>> ebb8481241aeee659962ea89aa6a18ba13ca327f
             "Objective Kills - Average": "4.53",
             "Objective Time - Average": "00:44",
             "Solo Kills - Average": "2.52"
         },
         "Combat": {
-<<<<<<< HEAD
             "Melee Final Blows": "69",
             "Solo Kills": "1,661",
             "Objective Kills": "2,986",
             "Final Blows": "4,349",
             "Damage Done": "3,126,207",
             "Eliminations": "7,787",
-=======
-            "Melee Final Blows": "68",
-            "Solo Kills": "1,654",
-            "Objective Kills": "2,973",
-            "Final Blows": "4,326",
-            "Damage Done": "3,113,431",
-            "Eliminations": "7,748",
->>>>>>> ebb8481241aeee659962ea89aa6a18ba13ca327f
             "Environmental Kills": "82",
             "Multikills": "54"
         },
@@ -140,7 +123,6 @@
             "Solo Kills - Average": "2.52",
             "Objective Time - Average": "00:44",
             "Objective Kills - Average": "4.53",
-<<<<<<< HEAD
             "Healing Done - Average": "754",
             "Final Blows - Average": "6.6",
             "Deaths - Average": "6.68",
@@ -163,30 +145,6 @@
             "Games Won": "365",
             "Games Played": "658",
             "Objective Time": "08:10:26",
-=======
-            "Healing Done - Average": "756",
-            "Final Blows - Average": "6.59",
-            "Deaths - Average": "6.69",
-            "Damage Done - Average": "4,746",
-            "Eliminations - Average": "11.81"
-        },
-        "Deaths": {
-            "Deaths": "4,389",
-            "Environmental Deaths": "119"
-        },
-        "Match Awards": {
-            "Cards": "210",
-            "Medals": "1,814",
-            "Medals - Gold": "675",
-            "Medals - Silver": "564",
-            "Medals - Bronze": "575"
-        },
-        "Game": {
-            "Time Spent on Fire": "08:18:43",
-            "Games Won": "363",
-            "Games Played": "656",
-            "Objective Time": "08:08:54",
->>>>>>> ebb8481241aeee659962ea89aa6a18ba13ca327f
             "Time Played": "85 hours"
         },
         "Miscellaneous": {
