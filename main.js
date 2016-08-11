@@ -12,6 +12,21 @@ $(document).ready(function () {
 
 	var players = [];
 	var sort = "descending";
+	var viewingCompetitive = false;
+
+	$('#mode-toggle').bootstrapToggle({
+      on: 'Competitive',
+      off: 'Quick Play'
+    });
+
+	$('#mode-toggle').change(function() {
+      if ($(this).prop('checked')) {
+		  viewingCompetitive = true;
+	  }
+	  else {
+		  viewingCompetitive = false;
+	  }
+    })
 
 	$.getJSON("http://scottmowen.com/overwatch-stats/data/stats.json", function (data) {
 		scott = data["Scott"];
@@ -88,7 +103,12 @@ $(document).ready(function () {
 		var obj = {};
 		for (var player in stats) {
 			if (player != "undefined") {
-				obj = stats[player][category];
+				if (viewingCompetitive) {
+					obj = stats[player]["competitive"][category];
+				}
+				else {
+					obj = stats[player]["quickplay"][category];
+				}
 				obj["Name"] = player;
 				data.push(obj);
 			}
