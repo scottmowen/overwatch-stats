@@ -59,6 +59,7 @@
 
 .statsTable {
   width: 100%;
+  background-color: rgba(24, 34, 62, .7);
 
   td, th {
     padding: 5px;
@@ -188,6 +189,15 @@
 
     option {
       color: black;
+    }
+
+    &:after {
+      display: inline-block;
+      content: '';
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-top: 15px solid #f0edf2;
+      margin-left: 10px;
     }
   }
 

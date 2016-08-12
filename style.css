@@ -16,7 +16,8 @@
   min-height: 1250px; }
 
 .statsTable {
-  width: 100%; }
+  width: 100%;
+  background-color: rgba(24, 34, 62, 0.7); }
   .statsTable td, .statsTable th {
     padding: 5px;
     text-align: center;
@@ -111,6 +112,13 @@
     padding: 0 15px; }
     .select-container .dropdown-toggle option {
       color: black; }
+    .select-container .dropdown-toggle:after {
+      display: inline-block;
+      content: '';
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-top: 15px solid #f0edf2;
+      margin-left: 10px; }
   .select-container .dropdown-menu {
     width: 100%; }
     .select-container .dropdown-menu a {
