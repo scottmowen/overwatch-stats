@@ -21,7 +21,7 @@ var urls = [
 
 
 var statsObj = {};
-var script = fs.readFileSync('/usr/share/nginx/overwatch-stats/overwatchstats.js');
+var script = fs.readFileSync('overwatchstats.js');
 
 
 var agent = wscraper.createAgent();
@@ -37,7 +37,7 @@ agent.on('done', function (url, data) {
 
 	statsObj[data.name] = data;
 
-	fs.writeFile('/usr/share/nginx/overwatch-stats/data/' + data.name + ".json", JSON.stringify(data, null, 4), function (err) {
+	fs.writeFile('data/' + data.name + ".json", JSON.stringify(data, null, 4), function (err) {
 
 		console.log('File successfully written! - Check your project directory for the json file');
 		// next item to process if any
@@ -50,7 +50,7 @@ agent.on('done', function (url, data) {
 agent.on('stop', function (n) {
 	util.log('[wscraper.js] agent has ended; ' + n + ' path(s) remained to visit');
 
-	fs.writeFile('/usr/share/nginx/overwatch-stats/data/stats.json', JSON.stringify(statsObj, null, 4), function (err) {
+	fs.writeFile('data/stats.json', JSON.stringify(statsObj, null, 4), function (err) {
 
 		console.log('File successfully written! - Check your project directory for the stats.json file');
 
