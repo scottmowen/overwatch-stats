@@ -1,3 +1,5 @@
+@import 'node_modules/bootstrap-sass/assets/stylesheets/bootstrap';
+
 // =============================================================================
 // String Replace
 // =============================================================================
@@ -450,13 +452,17 @@ and also iPads specifically.
     width: 100%;
 
     .dropdown-toggle {
-      font-size: 30px;
+      //font-size: 30px;
     }
   }
 
   .container-fluid {
     padding-right: 0px;
     padding-left: 0px;
+  }
+
+  .chart {
+    padding-left: 75px;
   }
 
 }
