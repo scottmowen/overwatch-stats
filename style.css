@@ -5904,9 +5904,10 @@ button.close {
   .select-container .dropdown-toggle {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     width: 100%;
+    height: 50px;
     text-align: center;
     font-family: Futura, century gothic, arial, sans-serif;
     text-transform: uppercase;
@@ -6123,5 +6124,8 @@ and also iPads specifically.
 
   .chart {
     padding-left: 75px; } }
+@media (max-width: 768px) {
+  .dropdown-toggle {
+    width: 320px; } }
 
 /*# sourceMappingURL=style.css.map */

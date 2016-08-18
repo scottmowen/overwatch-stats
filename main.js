@@ -13,12 +13,17 @@ $(document).ready(function () {
     var players = [];
     var sort = "descending";
     var viewingCompetitive = true;
-    $('.select-container .dropdown-toggle').text('Combat');
+    $('#categorySelect .dropdown-toggle .button-text').text('Combat');
 
     $('#mode-toggle').bootstrapToggle({
         on: 'Competitive',
         off: 'Quick Play'
     });
+
+    $('.dropdown-toggle').textfill({
+        maxFontPixels: 0
+    });
+
 
     $('#mode-toggle').change(function () {
         if ($(this).prop('checked')) {
@@ -52,11 +57,13 @@ $(document).ready(function () {
         //$("#chartSelect").change();
         $(".chart-dropdown li a").first().click();
 
+
     });
 
     $(".table-dropdown li a").click(function (e) {
         e.stopPropagation();
         e.preventDefault();
+
 
         //close the dropdown
         $('#tableDropdown').dropdown('toggle');
@@ -67,7 +74,13 @@ $(document).ready(function () {
             $('.table-dropdown .selected').removeClass('selected');
             $(this).addClass('selected');
 
-            $('#categorySelect .dropdown-toggle').text(category);
+            $('#categorySelect .dropdown-toggle .button-text').text(category);
+
+            //size dropdown text to fit
+            $('.dropdown-toggle').textfill({
+                maxFontPixels: 0
+            });
+
             updateDisplay(category);
 
             //$("#chartSelect").change()
@@ -164,8 +177,8 @@ $(document).ready(function () {
             e.preventDefault();
 
             var category = $(this).text();
-            //close the dropdown
 
+            //close the dropdown
             if ($("#chartSelect").hasClass('open')) {
                 $('#chartDropdown').dropdown('toggle');
             }
@@ -176,7 +189,12 @@ $(document).ready(function () {
             $('.chart-dropdown .selected').removeClass('selected');
             $(this).addClass('selected');
 
-            $('#chartSelect .dropdown-toggle').text(category);
+            $('#chartSelect .dropdown-toggle .button-text').text(category);
+
+            //size dropdown text to fit
+            $('#chartSelect .dropdown-toggle').textfill({
+                maxFontPixels: 0
+            });
 
             createBarChart(category, convertedData);
 
@@ -266,8 +284,8 @@ $(document).ready(function () {
             .data(identity);
         td.enter().append('td');
         td.attr('data-th', function (d, i) {
-                return data.legend[i];
-            });
+            return data.legend[i];
+        });
         td.exit().remove();
         td.text(identity);
 
@@ -416,6 +434,10 @@ $(document).ready(function () {
         }
     }
 
-    $('.dropdown-toggle').textfill({maxFontPixels: 36});
+    $(window).on('resize', function (e) {
+        $('.dropdown-toggle').textfill({
+            maxFontPixels: 0
+        });
+    });
 
 })
