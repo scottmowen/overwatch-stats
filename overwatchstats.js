@@ -71,6 +71,9 @@ $('.is-active .card-stat-block').each(function () {
 		var key, value;
 
 		key = stats.children('td').first().text();
+		if (key == "Teleporter Pad Destroyed") {
+			key = "Teleporter Pads Destroyed";
+		}
 		value = stats.children('td').last().text();
 
 		statBlock[key] = value;
@@ -104,6 +107,9 @@ $('#quick-play .is-active .card-stat-block').each(function () {
 		var key, value;
 
 		key = stats.children('td').first().text();
+		if (key == "Teleporter Pad Destroyed") {
+			key = "Teleporter Pads Destroyed";
+		}
 		value = stats.children('td').last().text();
 
 		statBlock[key] = value;
