@@ -87,36 +87,35 @@ and also iPads specifically.
   /*
   Label the data
   */
-  /*td:nth-of-type(1):before {
-    content: "First Name";
-  }
+  td:nth-of-type(1):before {
+    content: "First Name"; }
+
   td:nth-of-type(2):before {
-    content: "Last Name";
-  }
+    content: "Last Name"; }
+
   td:nth-of-type(3):before {
-    content: "Job Title";
-  }
+    content: "Job Title"; }
+
   td:nth-of-type(4):before {
-    content: "Favorite Color";
-  }
+    content: "Favorite Color"; }
+
   td:nth-of-type(5):before {
-    content: "Wars of Trek?";
-  }
+    content: "Wars of Trek?"; }
+
   td:nth-of-type(6):before {
-    content: "Porn Name";
-  }
+    content: "Porn Name"; }
+
   td:nth-of-type(7):before {
-    content: "Date of Birth";
-  }
+    content: "Date of Birth"; }
+
   td:nth-of-type(8):before {
-    content: "Dream Vacation City";
-  }
+    content: "Dream Vacation City"; }
+
   td:nth-of-type(9):before {
-    content: "GPA";
-  }
+    content: "GPA"; }
+
   td:nth-of-type(10):before {
-    content: "Arbitrary Data";
-  }*/ }
+    content: "Arbitrary Data"; } }
 .mode-header {
   font-size: 50px;
   text-align: center;

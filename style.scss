@@ -158,7 +158,7 @@ and also iPads specifically.
   /*
   Label the data
   */
-  /*td:nth-of-type(1):before {
+  td:nth-of-type(1):before {
     content: "First Name";
   }
   td:nth-of-type(2):before {
@@ -187,7 +187,7 @@ and also iPads specifically.
   }
   td:nth-of-type(10):before {
     content: "Arbitrary Data";
-  }*/
+  }
 }
 
 .mode-header {
