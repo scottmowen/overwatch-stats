@@ -164,35 +164,35 @@ $(document).ready(function () {
             e.preventDefault();
 
             var category = $(this).text();
-             //close the dropdown
+            //close the dropdown
 
-                if($("#chartSelect").hasClass('open')) {
-                    $('#chartDropdown').dropdown('toggle');
-                }
+            if ($("#chartSelect").hasClass('open')) {
+                $('#chartDropdown').dropdown('toggle');
+            }
 
             //if (!$(this).hasClass('selected')) {
 
-                //remove selected class in case it's already on there, otherwise function won't run
-                $('.chart-dropdown .selected').removeClass('selected');
-                $(this).addClass('selected');
+            //remove selected class in case it's already on there, otherwise function won't run
+            $('.chart-dropdown .selected').removeClass('selected');
+            $(this).addClass('selected');
 
-                $('#chartSelect .dropdown-toggle').text(category);
+            $('#chartSelect .dropdown-toggle').text(category);
 
-                createBarChart(category, convertedData);
+            createBarChart(category, convertedData);
 
-                setTimeout(function () {
-                    animateSort();
-                    /* $divs = $('.bar');
+            setTimeout(function () {
+                animateSort();
+                /* $divs = $('.bar');
 
-                     var sortedDivs = $divs.sort(function (a, b) {
-                     return parseFloat($(a).find(".rect").text()) < parseFloat($(b).find(".rect").text());
-                     });
+                 var sortedDivs = $divs.sort(function (a, b) {
+                 return parseFloat($(a).find(".rect").text()) < parseFloat($(b).find(".rect").text());
+                 });
 
-                     $(".chart").html(sortedDivs);
-                     */
-                }, 0)
+                 $(".chart").html(sortedDivs);
+                 */
+            }, 0)
 
-           // }
+            // }
 
         });
 
@@ -265,6 +265,9 @@ $(document).ready(function () {
         var td = tr.selectAll('td')
             .data(identity);
         td.enter().append('td');
+        td.attr('data-th', function (d, i) {
+                return data.legend[i];
+            });
         td.exit().remove();
         td.text(identity);
 
@@ -413,5 +416,26 @@ $(document).ready(function () {
         }
     }
 
+    (function ($) {
+        $.fn.textfill = function (options) {
+            var fontSize = options.maxFontPixels;
+            var ourText = $('span:visible:first', this);
+            var maxHeight = $(this).height();
+            var maxWidth = $(this).width();
+            var textHeight;
+            var textWidth;
+            do {
+                ourText.css('font-size', fontSize);
+                textHeight = ourText.height();
+                textWidth = ourText.width();
+                fontSize = fontSize - 1;
+            } while ((textHeight > maxHeight || textWidth > maxWidth) && fontSize > 3);
+            return this;
+        }
+    })(jQuery);
+
+    $(document).ready(function () {
+        $('.dropdown-toggle').textfill({maxFontPixels: 36});
+    });
 
 })
